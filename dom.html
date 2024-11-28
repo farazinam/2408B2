@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to DOM</h1>
+
+    <!-- ID  -->
+    <!-- <p id="para">Aptech</p> -->
+
+    <!-- CLASS  -->
+    <!-- <h4 class="abc">Facebook</h4>
+    <h4 class="abc">Instagram</h4>
+    <h4 class="abc">Twitter</h4> -->
+
+    <!-- TAG -->
+    <!-- <a href="">YouTube</a> -->
+
+    <!-- NAME  -->
+    <!-- <a name="ab">YouTube</a> -->
+    <!-- <hr> -->
+
+    <!-- <h2 id="bl">Block A</h2> -->
+
+    <a id="changeUrl" href="https://www.facebook.com/">Facebook</a>
+    <button onclick="abc()">Change</button>
+
+
+
+
+    <script>
+    //    var tag = document.getElementById("para");
+    //    var tag = document.getElementById("para").innerHTML;
+    //    document.write(tag);
+
+    //    var a = document.getElementsByClassName("abc")[0].innerHTML;
+    //    document.write(a);
+
+    //    var a = document.getElementsByTagName("a")[0].innerHTML;
+    //    document.write(a);
+
+    //    var b = document.getElementsByName("ab")[0].innerHTML;
+    //    document.write(b);
+
+    // var a =  "Aptech New Center";
+    // var b = document.getElementById("bl").innerHTML = a;
+    //    document.write(b);
+
+    function abc(){
+        var xyz = document.getElementById("changeUrl");
+        xyz.innerHTML = "Youtube";
+        xyz.href = "https://www.youtube.com/";
+        var body = document.getElementsByTagName("body")[0];
+        body.style.backgroundColor = "black";
+    }
+
+    </script>
+</body>
+</html>
