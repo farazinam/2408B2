@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <h1 id="muntazir" class="salman">Aptech Learning Pakistan</h1>
+    <h2 id="" class="ali">Aptech Learning Pakistan</h2>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, cumque!</p>
+    
+    <!-- <script src="jquery-3.7.1.min.js"></script> -->
+    <script>
+        // JAVASCRIPT 
+
+        // var a = document.getElementById('test').innerHTML;
+        // console.log(a);
+
+        // JQUERY 
+        $(document).ready(function(){
+
+            // SELECTION BY ID
+            // var b = $('#muntazir').html();
+            // console.log(b);
+
+            // SELECTION BY TAG NAME 
+            // var b = $('h1').html();
+            // console.log(b);
+
+            // SELECTION BY CLASS 
+            // var b = $('.salman').html();
+            // console.log(b);
+        })
+
+        $(function (){
+           $('#muntazir, .ali').css('color', 'green');
+
+        //    $('p').css('color', 'red');
+        //    $('p').css('background-color', 'yellow');
+        //    $('p').css('font-family', 'cooper');
+        //    $('p').css('text-decoration', 'overline');
+
+           $('p').css({"color":"red", "background-color":"yellow", "padding":"5px"});
+           $('p').css({'color':'red', 'background-color':'yellow', 'padding':'5px'});
+        })
+
+    </script>
+
+
+
+</body>
+</html>
