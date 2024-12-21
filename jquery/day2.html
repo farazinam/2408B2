@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<style>
+    div{
+        width: 200px;
+        height: 200px;
+        background-color: lightskyblue;
+        border-radius: 50%;
+    }
+</style>
+</head>
+<body>
+
+    <button id="btn1">Click Me to change color</button>
+    <button id="btn2">Undo changes</button>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, possimus?</p>
+    <input type="text">
+    GENDER:
+    <select name="" id="">
+        <option value="" disabled selected>SELECT</option>
+        <option value="male">MALE</option>
+        <option value="female">FEMALE</option>
+    </select>
+    <br>
+    <span></span>
+    <hr>
+
+    <form action="">
+        <label for="">UserName</label>
+        <input type="text">
+        <label for="">Email</label>
+        <input type="email">
+        <button type="submit">Click</button>
+    </form>
+
+    <hr>
+
+    <button id="hide">HIDE</button>
+    <button id="show">SHOW</button> <br>
+    <button id="toggle">SHOW - HIDE</button>
+    <div id="container"></div>
+
+    <script>
+        $(document).ready(function(){
+            $('#btn1').dblclick(function (){
+                $('p, #btn1, #btn2, input').css('color','blue');
+                // $('p').css('background-color','yellow');
+                // $('#btn1').css({'background-color':'gray', 'color':'red'})
+                // $(this).css({'background-color':'gray', 'color':'red'})
+            });
+            $('#btn2').contextmenu(function (){
+                event.preventDefault();
+                $('p').css('color','yellow');
+                $('p').css('background-color','blue');
+            });
+
+            $('input').focus(function (){
+                $('#btn1').css({'background-color':'yellow', 'color':'blue', 'border-radius':'15px', 'padding': '5px 10px'});
+            })
+            $('input').blur(function (){
+                $(this).css('background-color','yellow');
+            })
+
+            $('select').change(function(){
+               var x = $(this).val();
+            //    alert(x);
+               console.log(x);
+               $('span').text("YOU SELECTED " + x);
+            })
+
+            $('form').submit(function (){
+                alert("Form Submitted successfully!");
+            })
+
+            $('#hide').click(function (){
+                $('#container').hide(2000, function (){
+                    alert("Container hide hogya Mubarak HO")
+                });
+            })
+            $('#show').click(function (){
+                $('#container').show(1000);
+            })
+            $('#toggle').click(function (){
+                $('#container').toggle(4000);
+            })
+
+        })
+
+    </script>
+</body>
+</html>
