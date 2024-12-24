@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            color: white;
+            margin: 20px;
+        }
+
+        p{
+            width: 50%;
+            background-color: gray;
+        }
+
+        .add{
+            color: red;
+            background-color: lightcoral;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- FADE  -->
+    <!-- <button class="fadeOut">Fade Out</button>
+    <button class="fadeIn">Fade In</button>
+    <button class="fadeToggle">Fade Toggle</button>
+    <button class="fadeTo">Fade To</button>
+
+    <div class="box1" style="background-color: red;"></div>
+    <div class="box2" style="background-color: green;"></div>
+    <div class="box3" style="background-color: blue;"></div>
+    <div class="box4" style="background-color: yellow;"></div>
+    <hr> -->
+
+    <!-- SLIDE  -->
+    <!-- <button class="slideUp">Slide Up</button>
+    <button class="slideDown">Slide Down</button>
+    <button class="slideToggle">Slide Toggle</button>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas recusandae labore, obcaecati placeat neque nemo autem accusamus explicabo in rem! Modi vitae soluta sunt ullam tenetur laudantium adipisci, delectus doloribus.
+    Voluptate ad nisi autem inventore quidem esse veritatis aliquam similique dolorem voluptatem quos, culpa enim molestias, in mollitia dignissimos, perferendis dolor id expedita qui reprehenderit facilis illum quam velit? Nihil.
+    Nihil sed fuga, temporibus maiores molestias quos qui id excepturi optio et, illum blanditiis debitis repellat dolor ea accusantium sequi mollitia. Nihil asperiores magnam iste, blanditiis enim ut fugiat esse.
+    Maiores deserunt aliquid quae incidunt, nobis veritatis fugit praesentium impedit quas quidem ad nihil vel veniam magnam quod velit, nisi quia. Numquam voluptatum debitis quidem eaque nulla. Ut, a quos?
+    At numquam, accusamus enim rem omnis dignissimos tempore nobis! Excepturi beatae nemo similique deserunt id, iusto maxime? Deleniti, consequuntur perferendis minus nulla ipsum odit repellat numquam tempore hic, debitis velit.</p>
+<hr> -->
+
+    <!-- GHET AND SET  -->
+    <!-- <button class="get">Get</button> <br>
+    <a href="https://web.whatsapp.com">Whatsapp</a> <br>
+    <input type="text" value="How are you?"> -->
+
+    <!-- ADD AND REMOVE CLASS  -->
+    <button class="addC">Add Class</button>
+    <button class="remC">Remove Class</button> 
+    <button class="toggleC">Toggle Class</button>  <br>
+    <span>Lorem ipsum dolor sit amet.</span>
+
+    <script>
+        $(document).ready(function (){
+
+            // FADE 
+
+            // $('.fadeOut').click(function(){
+            //     $('div').fadeOut();
+            // });
+
+            $('.fadeOut').click(function(){
+                $('.box1').fadeOut(500);
+                $('.box2').fadeOut(1000);
+                $('.box3').fadeOut(1500);
+                $('.box4').fadeOut(2000);
+            });
+
+            $('.fadeIn').click(function(){
+                $('.box1').fadeIn(500);
+                $('.box2').fadeIn(1000);
+                $('.box3').fadeIn(1500);
+                $('.box4').fadeIn(2000, function (){
+                    alert("All Fadded In!")
+                });
+            });
+
+            $('.fadeToggle').click(function(){
+                $('.box1').fadeToggle(500);
+                $('.box2').fadeToggle(1000);
+                $('.box3').fadeToggle(1500);
+                $('.box4').fadeToggle(2000);
+            });
+
+            $('.fadeTo').click(function(){
+                $('.box1').fadeTo(500, 0.1);
+                $('.box2').fadeTo(1000, 0.4);
+                $('.box3').fadeTo(1500, 0.6);
+                $('.box4').fadeTo(2000, 0.8)
+            });
+
+
+            // SLIDE 
+            $('.slideUp').click(function(){
+               $('p').slideUp(1000); 
+            });
+            $('.slideDown').click(function(){
+               $('p').slideDown(500); 
+            });
+            $('.slideToggle').click(function(){
+               $('p').slideToggle(2000); 
+            });
+            
+            
+            // GET AND SET 
+            $('.get').click(function(){
+               $('a').text('Facebook');
+            //    $('a').html('<h1>Facebook</h1>');
+               $('a').attr('href','https://www.facebook.com');
+               $('input').val("I am Fine");
+            });
+
+
+            // ADD AND REMOVE CLASS 
+            $('.addC').click(function(){
+                $('span').addClass('add');
+            })
+            $('.remC').click(function(){
+                $('span').removeClass();
+            })
+            $('.toggleC').click(function(){
+                $('span').toggleClass('add');
+            })
+
+        });
+
+    </script>
+</body>
+</html>
