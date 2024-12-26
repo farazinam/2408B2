@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<style>
+    .design{
+        color: white;
+        background-color: rgb(47, 71, 255);
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-top: 20px;
+    }
+
+    .black{
+            background-color: rgb(36, 35, 35);
+            color: white;
+            button{
+        color: white;
+        background-color: rgb(47, 71, 255);
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-top: 20px;
+            }
+    }
+</style>
+</head>
+<body>
+   <button class="add">Add Class</button>
+   <button class="rem">Remove Class</button>
+   <button class="togg">Toggle Class</button> <br>
+
+   <button id="a">Style</button> <hr>
+
+   <!-- CHANGE THEME  -->
+   <button id="b">Change Theme</button>
+   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus itaque perferendis, consequuntur, maxime cumque mollitia enim dolor, obcaecati sunt odit optio? Quo est fugit ea aut assumenda ratione explicabo illo!</p>
+
+   <script>
+    $(function (){
+        $('.add').click(function(){
+            $('#a').addClass('design');
+        })
+
+        $('.rem').click(function(){
+            $('#a').removeClass();
+        })
+
+        $('.togg').click(function(){
+            $('#a').toggleClass('design');
+        })
+
+        // THEME CHANGE 
+        $('#b').click(function(){
+            $('body').toggleClass('black');
+        })
+    })
+   </script>
+</body>
+</html>
