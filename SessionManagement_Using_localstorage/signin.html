@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            width: 50%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <form action="index.html" onsubmit="return xyz()">
+
+        <fieldset>
+            <legend>Log In</legend>
+
+        <label for="">Email</label>
+        <input type="text"> <br> <br>
+
+        <label for="">Password</label>
+        <input type="text"> <br> <br>
+
+        <button type="submit">Log In</button> <br> <br>
+        Did not Signed Up Yet? <a href="signup.html">Sign Up Now!</a>
+    </fieldset>
+
+    </form>
+    <script>
+
+        function xyz(){
+        var emailVerify = document.getElementsByTagName('input')[0].value;
+        var passwordVerify = document.getElementsByTagName('input')[1].value;
+
+        var getEmail = localStorage.getItem('email');
+        var getPass = localStorage.getItem('password');
+
+        if(emailVerify == getEmail && passwordVerify == getPass){
+            alert('Logged In');
+            document.getElementsByTagName('input')[0].value = '';
+            document.getElementsByTagName('input')[1].value = '';
+            return true;
+        }
+        else{
+            alert('username OR password is incorrect');
+            return false;
+        }
+    }
+    </script>
+
+</body>
+</html>
