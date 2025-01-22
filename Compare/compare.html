@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <button>COMPARE</button>
+
+    <select  style="display: none;">
+        <option disabled selected>Select any Product</option>
+        <option value="a">AC</option>
+        <option value="f">Fridge</option>
+        <option value="w">Water Dispencer</option>
+    </select>
+
+    <div id="div1" style="display: none;">
+        <img src="water dispencer.jfif" alt="">
+        <h2>Water Dispencer</h2>
+        <p>Price: 28000</p>
+        <button>Buy Now</button>
+    </div>
+
+    <div id="div2" style="display: none;">
+        <img src="ac.jfif" alt="">
+        <h2>AC</h2>
+        <p>Price: 128,000</p>
+        <button>Buy Now</button>
+    </div>
+
+    <div id="div3" style="display: none;">
+        <img src="fridge.jfif" alt="">
+        <h2>Refregirator</h2>
+        <p>Price: 110,000</p>
+        <button>Buy Now</button>
+    </div>
+
+
+
+
+    <script>
+
+ $(function(){
+
+     $('button').eq(0).click(function (){
+        $('select').css("display", "block");
+        $('button').css("display", "none");
+     })
+     $("select").change(function(){
+        var a = $("select").val();
+        if(a == "w"){
+         $("#div1").css("display", "block") // water dispencer
+         $("#div2").css("display", "none")  // AC
+         $("#div3").css("display", "none")  // Fridge
+        }
+        if(a == "a"){
+         $("#div2").css("display", "block")
+         $("#div1").css("display", "none")
+         $("#div3").css("display", "none")
+        }
+        if(a == "f"){
+         $("#div3").css("display", "block")
+         $("#div1").css("display", "none")
+         $("#div2").css("display", "none")
+        }
+     })
+
+ })
+    </script>
+</body>
+</html>
