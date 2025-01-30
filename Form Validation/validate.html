@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            width: 40%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <form action="thankyou.html" onsubmit="return validate()">
+        <fieldset>
+            <legend>Registration form</legend>
+
+        <label for="">Name</label>
+        <input type="text" placeholder="Your Name">
+        <p style="color: red;"></p>
+
+        <label for="">Email</label>
+        <input type="email" placeholder="Your Email">
+        <p style="color: red;"></p>
+
+        <label for="">Contact No.</label>
+        <input type="text" placeholder="Your Contact Number">
+        <p style="color: red;"></p>
+
+        <button type="submit">Submit</button>
+
+    </fieldset>
+    </form>
+
+
+    <script>
+        function validate(){
+            // INPUT VALUES 
+            var nameVal = document.getElementsByTagName('input')[0].value;
+            var emailVal = document.getElementsByTagName('input')[1].value;
+            var contactVal = document.getElementsByTagName('input')[2].value;
+
+            // ERRORS 
+            var nameError = document.getElementsByTagName('p')[0];
+            var emailError = document.getElementsByTagName('p')[1];
+            var contactError = document.getElementsByTagName('p')[2];
+
+            // REGEX
+            var namePatt = /^[a-zA-Z]{3,10}$/;
+            var emailPatt = /^[\w\.=-]+@[\w\.-]+\.[\w]{2,3}$/;
+            var contactPatt = /^\d{11}$/;
+            // var contactPatt = /^\d{4}-\d{7}$/;
+
+            
+            
+            // NAME 
+            if(nameVal == ''){
+                nameError.innerHTML = 'Please provide Name';
+                return false;
+            }
+            else if (nameVal.length < 3 || nameVal.length > 10){
+                nameError.innerHTML = 'Please provide Name between 3 to 10 characters';
+                return false;
+            }
+            else if (!namePatt.test(nameVal)){
+                nameError.innerHTML = 'Please provide Valid Name';
+                return false;
+            }
+
+            // EMAIL 
+            else if (emailVal == ''){
+            emailError.innerHTML = 'Please provide Email';
+            return false;
+            }
+            else if (!emailPatt.test(emailVal)){
+                emailError.innerHTML = 'please Provide Valid Email';
+                return false;
+            }
+
+            //CONTACT
+            if(contactVal == ''){
+                contactError.innerHTML = 'Please provide Contact Number';
+                return false;
+            }
+            else if (contactVal.length < 11 || nameVal.length > 11){
+                contactError.innerHTML = 'Please provide 11 digits e.g 03001234567';
+                return false;
+            }
+            else if (!contactPatt.test(contactVal)){
+                contactError.innerHTML = 'Please provide Valid Contact Number';
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
