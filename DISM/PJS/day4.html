@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    //      for(var i = 1; i <= 20; i++){
+    //         document.write(i + '<br>')
+    //     }
+    //    document.write(i)
+    //    i = 35
+    //    document.write(i)
+
+        // for(var i = 1; i <= 20; i = i + 2){
+        //     document.write(i + '<br>')
+        // }
+
+        // for(i = 0; i <= 20; i = i + 2){
+        //     document.write(i + '<br>')
+        // }
+
+        // for(i = 1; i <= 20; i++){
+        //     if(i%2 == 0){
+        //         document.write(i + '<br>')
+        //     }
+        // }
+
+        // for(i = 1; i <= 20; i++){
+        //     if(i%2 !== 0){
+        //         document.write(i + '<br>')
+        //     }
+        // }
+
+        // CONTINUE 
+        // for(i = 1; i <= 20; i++){
+        //     if(i%2 == 0){
+        //         continue;
+        //     }
+        //     document.write(i + '<br>')
+        // }
+
+        // BREAK 
+        // for(i = 1; i <= 20; i++){
+        //     document.write(i + '<br>')
+        //     if(i == 11){
+        //         break;
+        //     }
+        // }
+        // document.write("Loop Break");
+
+        // EXIT 
+        // for(i = 1; i <= 20; i++){
+        //     document.write(i + '<br>')
+        //     if(i == 11){
+        //         exit;
+        //     }
+        // }
+        // document.write("Loop Terminated");
+
+
+        // ARRAY 
+        //var arr1 = [100, 200, 300, 400, 500, 600, 700]; //Literal Syntax
+        //var arr2 = new Array(600, 700, 800, 900, 1000);  //Constructor Method
+
+        // document.write(arr1[0])
+        // document.write(arr1[1])
+        // document.write(arr1[2])
+        // document.write(arr1[3])
+        // document.write(arr1[4])
+
+        // for(let x = 0; x < 5; x++){
+        //     document.write(arr1[x] + '<br>')
+        // }
+
+        // for(let x = 0; x < arr1.length; x++){
+        //     document.write(arr1[x] + '<br>')
+        // }
+
+        // var arr3 = new Array();
+
+        // arr3[0] = 'Ali';
+        // arr3[1] = 'Bilal';
+        // arr3[2] = 'Hamza';
+
+        // document.write(arr3[0]);
+        // document.write(arr3[1]);
+        // document.write(arr3[2]);
+        
+        // FOR IN 
+        // for(lab13 in arr1){
+        //     document.write(arr1[lab13] + '<br>')
+        // }
+
+        //document.write(typeof(arr1)) //Object
+
+
+        //OBJECT
+        var obj1 = {name: "Chair", size: 2.5, color: "Green"};  //Literal Syntax
+        var obj2 = new Object(); // Constructor method
+
+        // document.write(obj1["name"])
+        // document.write(obj1.name)
+        // document.write(obj1.size)
+        // document.write(obj1.color)
+
+        // for(key in obj1){
+        //     // document.write(key + ': ')
+        //     // document.write(obj1[key])
+        //     // document.write('<br>')
+
+        //     document.write(key + ": " + obj1[key] + "<br>")
+        // }
+
+        for(key in obj2){
+            document.write(key + ": " + obj2[key] + "<br>")
+        }
+
+
+        obj2.name = "Ali";
+        obj2.age = 22;
+        obj2.status = true;
+
+        for(key in obj2){
+            document.write(key + ": " + obj2[key] + "<br>")
+        }
+
+
+        
+    </script>
+</body>
+</html>
