@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form onsubmit="return abc()">
+        <label for="">Username</label>
+        <input id="i" type="text"> <br>
+        <span style="color: red;"></span> <br>
+
+        <label for="">Password</label>
+        <input type="text"> <br>
+        <span style="color: red;"></span> <br>
+
+        <button type="submit">Submit</button>
+        <!-- <input type="submit" value="Submit"> -->
+    </form>
+
+
+    <script>
+                //PATTERN MATCHING USING REGULAR EXPRESSION
+            function abc(){
+
+                //For username
+               var uname = document.getElementsByTagName('input')[0].value;
+               var userError = document.getElementsByTagName('span')[0];
+               var userPatt = /^[A-Za-z]{3,30}$/;
+
+               //For Password
+               var pass = document.getElementsByTagName('input')[1].value;
+               var passError = document.getElementsByTagName('span')[1];
+               var passPatt = /^[0-9]{8,30}$/;
+
+
+               if(uname == ""){
+                userError.innerHTML = "Username is Required";
+                return false;
+               }
+               else if(!userPatt.test(uname)){
+                userError.innerHTML = "Username is Incorrect";
+                return false;
+               }
+
+               else if(pass == ""){
+                passError.innerHTML = "Password is Required";
+                return false;
+               }
+
+               else if(!passPatt.test(pass)){
+                passError.innerHTML = "Password is Incorrect";
+                return false;
+               }
+
+               else{
+                alert("Form Submitted Successfully");
+               }
+            }
+    </script>
+</body>
+</html>
