@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    
+    <style>
+        /* #fnameError, #lnameError, #emailError, #passError{
+            color: red;
+        } */
+
+        .mb-3>div{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sign Up!</h1>
+    <form onsubmit="return xyz()">
+        <div class="mb-3">
+            <label for="fname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="fname" aria-describedby="emailHelp">
+            <div id="fnameError" class="form-text"></div>
+          </div>
+          <div class="mb-3">
+            <label for="lname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lname" aria-describedby="emailHelp">
+            <div id="lnameError" class="form-text"></div>
+          </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="text" class="form-control" id="email" aria-describedby="emailHelp">
+          <div id="emailError" class="form-text"></div>
+        </div>
+        <div class="mb-3">
+          <label for="pass" class="form-label">Password</label>
+          <input type="password" class="form-control" id="pass">
+          <div id="passError" class="form-text"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+      </form>
+
+
+      <script>
+        function xyz(){
+            //inputs
+            fname = document.getElementById('fname').value;
+            lname = document.getElementById('lname').value;
+            email = document.getElementById('email').value;
+            pass = document.getElementById('pass').value;
+
+            //errors
+            fnameError = document.getElementById('fnameError');
+            lnameError = document.getElementById('lnameError');
+            emailError = document.getElementById('emailError');
+            passError = document.getElementById('passError');
+
+            //patterns
+            fnamePatt = /^[a-zA-Z]{2,15}$/
+            lnamePatt = /^[a-zA-Z][a-zA-Z0-9_-]{2,15}$/
+            emailPatt = /^[\w\.=-]+@[\w\.-]+\.[\w]{2,3}$/
+            passPatt = /^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,50})$/;
+
+
+            if(fname == ''){
+                fnameError.innerHTML = 'First name is Required';
+                return false;
+            }
+
+            else if(!fnamePatt.test(fname)){
+                fnameError.innerHTML = 'First name is Incorrect';
+                return false;
+            }
+
+            else if (lname == ''){
+                lnameError.innerHTML = 'Last Name is Required';
+                fnameError.innerHTML = '';
+                return false;
+            }
+            else if (!lnamePatt.test(lname)){
+                lnameError.innerHTML = 'Last Name is Incorrect'
+                fnameError.innerHTML = '';
+                return false;
+            }
+
+            else if (email == ''){
+                emailError.innerHTML = 'Email is Required';
+                lnameError.innerHTML = '';
+                return false;
+            }
+            else if (!emailPatt.test(email)){
+                emailError.innerHTML = 'Email is Incorrect';
+                lnameError.innerHTML = '';
+                return false;
+            }
+
+            else if (pass == ''){
+                passError.innerHTML = 'Password is Required';
+                emailError.innerHTML = '';
+                return false;
+            }
+            else if (!passPatt.test(pass)){
+                passError.innerHTML = 'Pasword should contain atleast 6 characters including number and special characters';
+                emailError.innerHTML = '';
+                return false;
+            }
+
+            else{
+                alert("Account Created Successfully!")
+            }
+
+        }
+      </script>
+</body>
+</html>
