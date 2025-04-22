@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<body>
+
+    <form onsubmit="g()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="eng" class="form-label">Eng</label>
+          <input type="text" class="form-control" id="eng">
+        </div>
+        <div class="mb-3">
+          <label for="urdu" class="form-label">Urdu</label>
+          <input type="text" class="form-control" id="urdu">
+        </div>
+        <div class="mb-3">
+          <label for="math" class="form-label">Math</label>
+          <input type="text" class="form-control" id="math">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      
+        <h4></h4>
+        <h4></h4>
+        <h4></h4>
+    
+
+    <script>
+        function g(){
+            event.preventDefault();
+            var name = document.getElementById('name').value;
+
+            //get form input values
+            var eng = parseInt(document.getElementById('eng').value);
+            var urdu = parseInt(document.getElementById('urdu').value);
+            var math = parseInt(document.getElementById('math').value);
+
+            //calculation
+            var obtMarks = eng + urdu + math;
+            var per = (obtMarks/300)*100;
+            per = per.toFixed(2);
+            
+            var grade;  // variable declaration
+            
+            if(per >= 80 && per <= 100){
+              grade = "A+";
+            }
+            else if (per >= 70 && per <= 79){
+              grade = "A";
+            }
+
+            //for setting data into a session storage
+            sessionStorage.setItem("Name", name)
+            sessionStorage.setItem("Percentage", per)
+            sessionStorage.setItem("Grade", grade)
+
+            //for getting data from session storage
+            var getName = sessionStorage.getItem("Name");
+            var getPer = sessionStorage.getItem("Percentage");
+            var getGrade = sessionStorage.getItem("Grade");
+
+            document.getElementsByTagName('h4')[0].innerHTML = "Name :" + getName;
+            document.getElementsByTagName('h4')[1].innerHTML = "Percentage :" + getPer;
+            document.getElementsByTagName('h4')[2].innerHTML = "Grade :" + getGrade;
+          }
+
+    </script>
+</body>
+</html>
