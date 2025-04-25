@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fetching Data Through API</h1>
+
+    <form onsubmit="fetchData()">
+        <label for="">Enter Movie Name</label>
+        <input type="text"> <br>
+        <button type="submit">Search</button>
+    </form>
+
+    <div>
+        <h3></h3>  
+        <h3></h3>
+        <h3></h3>
+        <h3></h3>
+        <h3></h3>
+        <h3></h3>
+        <h3></h3>
+        <img src="" alt="">
+    </div>
+
+    <script>
+        async function fetchData(){
+        event.preventDefault();
+        var movieName = document.getElementsByTagName('input')[0].value;
+        var fetchAPI = "http://www.omdbapi.com/?t=" + movieName + "&apikey=6fcc40ca";
+        var fetchMovie = await fetch(fetchAPI);
+        var obj = await fetchMovie.json();
+       
+        document.getElementsByTagName('h3')[0].innerHTML = "Title : " + obj.Title;
+        document.getElementsByTagName('h3')[1].innerHTML = "Year : " +  obj.Year;
+        document.getElementsByTagName('h3')[2].innerHTML = "Runtime : " +  obj.Runtime;
+        document.getElementsByTagName('h3')[3].innerHTML = "Director : " +  obj.Director;
+        document.getElementsByTagName('h3')[4].innerHTML = "Writer : " +  obj.Writer;
+        document.getElementsByTagName('h3')[5].innerHTML = "Actors : " +  obj.Actors;
+        document.getElementsByTagName('h3')[6].innerHTML = "Language : " +  obj.Language;
+        document.getElementsByTagName('img')[0].src = obj.Poster;
+    }
+    </script>
+</body>
+</html>
