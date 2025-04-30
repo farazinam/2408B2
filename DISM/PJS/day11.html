@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>Developer Tools</h1>
+    
+    <form onsubmit="addition()">
+
+        <label for="">Enter First Number</label>
+        <input type="number"> <br>
+
+        <label for="">Enter Second Number</label>
+        <input type="number"> <br>
+
+        <button type="submit">Add</button>
+    </form>
+
+    <h1></h1> -->
+
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <script>
+        //Resolved Run Time Error in Console
+
+        // var a = 5;
+        // var b = 10;
+        // console.log(a+b)
+
+
+        //Developer Tool
+
+        // function addition(){
+        //     event.preventDefault();
+        //     // var num1 = parseInt(document.getElementsByTagName('input')[0].value);
+        //     // var num2 = parseInt(document.getElementsByTagName('input')[1].value);
+        //     var num1 =+(document.getElementsByTagName('input')[0].value); 
+        //     var num2 = +(document.getElementsByTagName('input')[1].value);
+        //     var resultOfTwoNumbersIs = num1 + num2;
+        //     //document.write(result)
+
+        //     document.getElementsByTagName('h1')[1].innerHTML           =    ;
+        // }
+
+        //JavaScript Minification
+
+        //function addition(){event.preventDefault();var e=+document.getElementsByTagName("input")[0].value+ +document.getElementsByTagName("input")[1].value;document.getElementsByTagName("h1")[1].innerHTML=e}
+ 
+
+        //Blocking and Non-Blocking
+        document.getElementsByTagName('p')[0].innerHTML = "Loading...."
+
+        var sum = 0;
+        setTimeout(() =>{
+            for(var i = 1; i < 100000000; i++){
+            sum += i;  // sum = sum + i;
+        }
+        document.getElementsByTagName('p')[1].innerHTML = "Fetching Data"
+        }, 2000);
+        
+
+        document.getElementsByTagName('p')[2].innerHTML = "Completed Execution"
+
+
+
+        //Blocking and Non-Blocking
+    document.write("WhatsApp Web Connect...");
+    document.write("<br>");
+
+    setTimeout(() => {
+      document.write("Let us see WhatsApp Data");
+      document.write("<br>");
+
+      document.write("WhatsApp Picture"); // First
+      document.write("<br>");
+
+      document.write("WhatsApp Video"); // Second
+      document.write("<br>");
+
+      document.write("WhatsApp Docs"); // Third
+    }, 3000);
+
+    document.write("<br>");
+    document.write("loading...");
+    document.write("<br>");
+        
+    </script>
+</body>
+</html>

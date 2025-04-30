@@ -44,12 +44,14 @@
     </table>
 
     <script>
+        var currentRow = null;
         function abc() {
             event.preventDefault();
             var pn = document.getElementById('pname').value;
             var pp = document.getElementById('pprice').value;
             var pd = document.getElementById('pdesc').value;
 
+            if(currentRow == null){
             var table = document.getElementById('t');  // gettiing table from HTML
             var count = table.rows.length;  //rows count
             var row = table.insertRow();  //create Row
@@ -57,9 +59,21 @@
             row.insertCell(1).innerHTML = pn;  //create cell
             row.insertCell(2).innerHTML = pp;  //create cell
             row.insertCell(3).innerHTML = pd;  //create cell
-            row.insertCell(4).innerHTML = "<button class='btn btn-warning'> Update </button>";  //create cell
-            row.insertCell(5).innerHTML = "<button class='btn btn-danger' onclick='del(this)'> Delete </button>";  //create cell
+            row.insertCell(4).innerHTML = "<button class='btn btn-warning' onclick='upd(this)'> EDIT </button>";  //create cell
+            row.insertCell(5).innerHTML = "<button class='btn btn-danger' onclick='del(this)'> DELETE </button>";  //create cell
+            }
+            else{
+                currentRow.cells[1].innerHTML = pn; 
+                currentRow.cells[2].innerHTML = pp; 
+                currentRow.cells[3].innerHTML = pd; 
+                currentRow = null;
+            }
 
+
+            clr();
+        }
+        
+        function clr(){
             document.getElementById('pname').value = '';
             document.getElementById('pprice').value = '';
             document.getElementById('pdesc').value = '';
@@ -67,12 +81,17 @@
 
         function del(d) {
             var currentRow = d.parentElement.parentElement;
-            if (confirm("Ayr You Sure?")) {
+            if (confirm("Are You Sure?")) {
                 document.getElementById('t').deleteRow(currentRow.rowIndex);
             }
         }
 
-
+        function upd(u){
+           currentRow = u.parentElement.parentElement
+           document.getElementById('pname').value = currentRow.cells[1].innerHTML;
+           document.getElementById('pprice').value = currentRow.cells[2].innerHTML;
+           document.getElementById('pdesc').value = currentRow.cells[3].innerHTML;
+        }
 
 
     </script>
