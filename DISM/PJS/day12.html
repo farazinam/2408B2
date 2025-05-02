@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<button onclick="alert('Hello')">Click me</button>
+<button>Click me</button>
+
+    <script>
+        var name = "Faraz";
+        var designation = "Faculty Member";
+        var branch = "North Nazimabad";
+        var center = "Aptech Learning";
+
+        // document.write("My Name is " + name + " and i am teaching in " + center + " Branch name is " + branch);
+
+        // document.write("<h1> Template Literal </h1>");
+
+        // document.write(`My name is ${name} and i am teaching in ${center} Branch name is ${branch}`)
+
+        var but = document.getElementsByTagName('button')[1];
+        but.addEventListener('click', function(){
+            alert('Hello');
+        })
+    </script>
+</body>
+</html>

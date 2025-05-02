@@ -29,7 +29,7 @@
         async function fetchData(){
         event.preventDefault();
         var movieName = document.getElementsByTagName('input')[0].value;
-        var fetchAPI = "http://www.omdbapi.com/?t=" + movieName + "&apikey=6fcc40ca";
+        var fetchAPI = "http://www.omdbapi.com/?t=" + movieName + "&apikey=[Your_Api_key]";
         var fetchMovie = await fetch(fetchAPI);
         var obj = await fetchMovie.json();
        
