@@ -1,4 +1,6 @@
--- ------------------------------------ DAY 1 ---------------------------------------------------------
+-- ------------------------------------ DAY 1 - Theory ---------------------------------------------------------
+
+-- ------------------------------------ DAY 2 ---------------------------------------------------------
 -- create database
 CREATE DATABASE 2408B2;
 
@@ -33,7 +35,7 @@ SET SQL_SAFE_UPDATES = 0;
 UPDATE students SET Name = "Muntazir" WHERE studentId = 2;
 
 
--- ------------------------------------ DAY 2 ---------------------------------------------------------
+-- ------------------------------------ DAY 3 ---------------------------------------------------------
 -- DDL Queries
 -- create
 -- alter
@@ -74,4 +76,90 @@ VALUES (2, 'faris', 18, 'faris@gmail.com', 'lahore');
 
 SELECT * FROM employees;
 
+-- ------------------------------------ DAY 4 ---------------------------------------------------------
+desc employees;
 
+SELECT * FROM pyaraybachay;
+
+SELECT name FROM pyaraybachay;
+ 
+SELECT name, age FROM pyaraybachay;
+SELECT name FROM pyaraybachay;
+
+SELECT * FROM pyaraybachay WHERE age = 22;
+SELECT age, name , shehr FROM pyaraybachay WHERE age = 22;
+
+CREATE TABLE students AS SELECT name, age FROM pyaraybachay;
+
+CREATE TABLE records (
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(100),
+age INT NOT NULL CHECK(age >=18),
+fees INT NOT NULL,
+city VARCHAR(100));
+
+SELECT * FROM records;
+
+INSERT INTO records (name, age, fees, city)
+VALUES ('Ali', 18, 6500, 'Karachi'),
+('Bilal', 21,6300, 'Lahore' ),
+('Faouzan', 21,6300, 'Lahore' ),
+('Ibrahim', 21,6300, 'Lahore' ),
+('Hassan', 21,6300, 'Lahore' ),
+('Adil', 21,6300, 'Lahore' ),
+('Usman', 21,6300, 'Lahore' ),
+('Bilal', 27,7900, 'Lahore' ),
+('Faouzan', 21,7200, 'Karachi' ),
+('Mubashir', 21,6300, 'Lahore' ),
+('Ali', 32,6300, 'Multan' ),
+('Adil', 21,8200, 'Karachi' ),
+('Amjad', 21,6300, 'Lahore' );
+
+SET sql_mode = 'STRICT_ALL_TABLES';       -- to stop data insertion on not null.
+
+SELECT * FROM records;
+SELECT * FROM records WHERE city = 'Lahore';
+
+SELECT * FROM records 
+LIMIT 7;
+
+SELECT * FROM records WHERE city = 'Lahore' LIMIT 6;
+
+UPDATE records SET city = NULL WHERE id = 2;
+
+SELECT * FROM records WHERE city IS NULL;
+SELECT * FROM records WHERE NOT city IS NULL;
+
+SELECT * FROM pyaraybachay;
+SELECT shehr AS City FROM pyaraybachay;
+
+SELECT id AS StudentID FROM records;
+
+-- CLAUSES AND STATEMENTS
+-- distinct
+SELECT * FROM records;
+SELECT DISTINCT * FROM records;
+SELECT DISTINCT name, age, fees , city  FROM records;
+SELECT DISTINCT city FROM records;
+SELECT DISTINCT age FROM records;
+SELECT DISTINCT name FROM records;
+
+SELECT * FROM records WHERE age >= 22;
+
+-- LOGICAL OPR
+SELECT * FROM records WHERE city = 'karachi' AND age = 21;
+SELECT * FROM records WHERE city = 'karachi' OR age = 21;
+
+SELECT * FROM records WHERE city = 'karachi' AND age = 21 OR fees = 6300;
+SELECT * FROM records WHERE city = 'karachi' OR age = 21 AND fees = 6300;
+SELECT * FROM records WHERE city = 'karachi' AND (age = 21 OR fees = 6300);
+SELECT * FROM records WHERE (city = 'karachi' AND age = 21) OR fees = 6300;
+
+SELECT * FROM records WHERE age = 21 OR age = 24 OR age = 27 OR age = 32;
+-- IN
+SELECT * FROM records WHERE age IN (21, 24, 27, 32);
+SELECT * FROM records WHERE NOT age IN (21, 24, 27, 32);
+
+-- BETWEEN
+SELECT * FROM records WHERE age BETWEEN 22 AND 27;
+SELECT * FROM records WHERE NOT age BETWEEN 22 AND 27;
