@@ -163,3 +163,53 @@ SELECT * FROM records WHERE NOT age IN (21, 24, 27, 32);
 -- BETWEEN
 SELECT * FROM records WHERE age BETWEEN 22 AND 27;
 SELECT * FROM records WHERE NOT age BETWEEN 22 AND 27;
+
+
+-- ------------------------------------ DAY 5 ---------------------------------------------------------
+
+SELECT * FROM records;
+
+SELECT * FROM records ORDER BY name;
+SELECT * FROM records ORDER BY fees ASC;
+SELECT * FROM records ORDER BY name DESC;
+
+-- like opr
+SELECT * FROM records WHERE name LIKE '%o%';
+SELECT * FROM records WHERE name LIKE '%la%';
+SELECT * FROM records WHERE name LIKE 'o%';
+SELECT * FROM records WHERE name LIKE '%l';
+SELECT * FROM records WHERE name LIKE '_d%';
+SELECT * FROM records WHERE name LIKE '_a%';
+SELECT * FROM records WHERE name LIKE '%a_';
+SELECT * FROM records WHERE name LIKE '_b_';
+SELECT * FROM records WHERE name LIKE '___u%';
+
+-- Functions
+ SELECT COUNT(*) AS Student_Count FROM records;
+ SELECT COUNT(name) AS Student_Count FROM records;
+SELECT COUNT(city) AS Student_Count FROM records;
+SELECT COUNT(city) AS Student_Count FROM records WHERE city = 'Lahore';
+SELECT COUNT(fees) AS Student_Count FROM records WHERE fees > 6500;
+
+-- SUM
+SELECT SUM(fees) FROM records;
+SELECT name, SUM(fees) FROM records;
+
+-- Max
+SELECT id, name, MAX(fees) FROM records;
+
+-- Min
+SELECT id, name, MIN(fees) FROM records;
+  
+-- Avg
+SELECT AVG(fees) FROM records;
+
+-- SUBQUERIES 
+SELECT name, fees FROM records WHERE fees = (SELECT MAX(fees) FROM records);  
+SELECT name, fees FROM records WHERE fees = (SELECT MIN(fees) FROM records);  
+
+
+
+
+
+
