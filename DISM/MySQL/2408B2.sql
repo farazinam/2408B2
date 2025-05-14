@@ -205,10 +205,71 @@ SELECT id, name, MIN(fees) FROM records;
 SELECT AVG(fees) FROM records;
 
 -- SUBQUERIES 
-SELECT name, fees FROM records WHERE fees = (SELECT MAX(fees) FROM records);  
+SELECT name, fees FROM records WHERE fees = (SELECT MAX(fees) FROM records); 
 SELECT name, fees FROM records WHERE fees = (SELECT MIN(fees) FROM records);  
 
 
+-- ------------------------------------ DAY 6 ---------------------------------------------------------
+SELECT * FROM records;
+
+-- Group by
+SELECT city, SUM(fees) AS SUM_OF_Students_Fees FROM records GROUP BY city;
+
+SELECT city, COUNT(name) FROM records GROUP BY city;
+
+-- Group By with WHERE
+SELECT city, SUM(fees) AS SUM_OF_Students_Fees FROM records WHERE age > 20 GROUP BY city;
+SELECT city, SUM(fees) AS SUM_OF_Students_Fees FROM records WHERE fees > 7000 GROUP BY city;
+
+SELECT city, COUNT(name) FROM records WHERE age > 20 GROUP BY city;
+SELECT city, COUNT(name) FROM records WHERE fees > 7000 GROUP BY city;
+
+-- Group By with HAVING
+SELECT city, SUM(fees) FROM records GROUP BY city HAVING SUM(fees) > 30000;
+SELECT city, SUM(fees) FROM records GROUP BY city HAVING COUNT(*) >= 2;
+
+-- JOINS
+CREATE TABLE department (
+deptId INT PRIMARY KEY AUTO_INCREMENT,
+deptName VARCHAR(100) UNIQUE NOT NULL);
+
+INSERT INTO department (deptName)
+VALUES ('HR'),
+('Marketing'),
+('SRO');
+
+
+CREATE TABLE employee (
+empId INT PRIMARY KEY,
+empName VARCHAR(100) NOT NULL,
+empAge INT NOT NULL,
+empSalary INT NOT NULL,
+city VARCHAR(100),
+departmentId INT,
+FOREIGN KEY (departmentId) REFERENCES  department (deptId));
+
+INSERT INTO employee (empId, empName, empAge, empSalary, city, departmentId)
+VALUES (101, 'Ali', 22, 25000, 'Karachi', 3),
+(102, 'Usman', 27, 35000, 'Lahore', 3),
+(103, 'Umer', 24, 15000, 'Karachi', 1),
+(104, 'Nasir', 22, 25000, 'Karachi', 1),
+(105, 'Haider', 27, 35000, 'Lahore', 1),
+(106, 'Ibrahim', 34, 15000, 'Karachi', 2),
+(107, 'Asif', 22, 25000, 'Hyderabad', 2),
+(108, 'Bilawal', 17, 45000, 'Hyderabad', 3),
+(109, 'Maaz', 24, 19000, 'Karachi', 2);
+
+SELECT * FROM department;
+SELECT * FROM employee;
+
+-- Inner Join
+SELECT * FROM employee 
+INNER JOIN department
+ON department.deptId = employee.departmentId;
+
+SELECT employee.empName, employee.city, department.deptName FROM employee 
+INNER JOIN department
+ON department.deptId = employee.departmentId;
 
 
 
