@@ -272,5 +272,71 @@ INNER JOIN department
 ON department.deptId = employee.departmentId;
 
 
+-- ------------------------------------ DAY 7 ---------------------------------------------------------
+
+INSERT INTO department (deptName)
+VALUES ('Faculty'),
+('Accounts');
+
+INSERT INTO employee (empId, empName, empAge, empSalary, city, departmentId)
+VALUES (110, 'Mudassir', 22, 25000, 'Karachi', Null),
+(111, 'Kamran', 27, 35000, 'Lahore', Null),
+(112, 'Umer', 24, 15000, 'Karachi', Null);
+
+SELECT * FROM employee 
+LEFT JOIN department
+ON department.deptId = employee.departmentId;
+
+SELECT employee.empName, employee.city, department.deptName FROM employee 
+LEFT JOIN department
+ON department.deptId = employee.departmentId;
+
+SELECT employee.empName, employee.city, department.deptName FROM employee 
+RIGHT JOIN department
+ON department.deptId = employee.departmentId;
+
+SELECT employee.empName, employee.city, department.deptName FROM employee 
+RIGHT JOIN department
+ON department.deptId = employee.departmentId;
+
+SELECT * FROM employee 
+LEFT JOIN department
+ON department.deptId = employee.departmentId
+UNION
+SELECT * FROM employee 
+RIGHT JOIN department
+ON department.deptId = employee.departmentId;
+
+SELECT employee.empName, employee.city, department.deptName FROM employee 
+LEFT JOIN department
+ON department.deptId = employee.departmentId
+UNION
+SELECT employee.empName, employee.city, department.deptName FROM employee 
+RIGHT JOIN department
+ON department.deptId = employee.departmentId;
+
+-- self Join
+CREATE TABLE empMan (
+empId INT PRIMARY KEY AUTO_INCREMENT, 
+empName VARCHAR (100) NOT NULL,
+managerId INT,
+FOREIGN KEY (managerId) REFERENCES empMan (empId));
+
+DROP TABLE empMan;
+
+INSERT INTO empMan(empName, managerId)
+VALUES ('Wadood', NULL);
+
+INSERT INTO empMan(empName, managerId)
+VALUES('Hamza', 1),
+('Zeeshan', 3),
+('Ali', 2);
+
+SELECT * FROM empMan;
+
+SELECT e2.empName AS Employee, e1.empName AS Manager
+FROM empMan e1
+INNER JOIN empMan e2
+ON e2.managerId = e1.empId;
 
 
