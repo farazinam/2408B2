@@ -477,3 +477,97 @@ SELECT * FROM employes;
 
 UPDATE employes SET salary = salary * 1.1
 WHERE department_id = (SELECT department_id FROM departments WHERE department_name = 'Sales');
+
+-- ------------------------------------ DAY 9 ---------------------------------------------------------
+-- work on phpmyadmin -  join 3 tables
+
+-- ------------------------------------ DAY 10 ---------------------------------------------------------
+
+-- TCL - Transaction Control Language
+
+SELECT * FROM employees;
+
+START TRANSACTION;
+DELETE FROM employees WHERE empId = 1;
+
+COMMIT;
+
+ROLLBACK;
+
+-- Stored Procedure
+DELIMITER //
+CREATE PROCEDURE sp_rec()
+BEGIN
+SELECT * FROM records;
+END //
+DELIMITER ;
+
+CALL sp_rec();
+
+DELIMITER //
+CREATE PROCEDURE sp_recCon()
+BEGIN
+SELECT * FROM records WHERE city = 'Karachi';
+END //
+DELIMITER ;
+
+CALL sp_recCon();
+
+DELIMITER //
+CREATE PROCEDURE sp_recConPara(IN c VARCHAR(100))
+BEGIN
+SELECT * FROM records WHERE city = c;
+END //
+DELIMITER ;
+
+CALL sp_recConPara('Multan');
+
+SHOW PROCEDURE STATUS;
+
+SELECT * FROM records;
+
+-- Functions (built-in)
+SELECT COUNT(departmentId) FROM employee;
+SELECT * FROM employee;
+
+SELECT FLOOR(2.9);
+SELECT FLOOR(2.3);
+SELECT CEIL(6.9);
+SELECT CEIL(6.1);
+SELECT ROUND(5.5) AS RoundOFF;
+SELECT ROUND(5.3);
+
+SELECT SIN(0);
+SELECT COS(0);
+SELECT TAN(0);
+SELECT ASIN(0);
+SELECT ACOS(0);
+SELECT ATAN(0);
+
+SELECT CONCAT('Faraz' , ' ' ,'Inam') AS FULLNAME;
+
+SELECT CONCAT(empId, ' ' , empName) AS NAMEandID FROM employee;
+
+SELECT ASCII('A') AS ascii_value;  -- Output: 65
+
+SELECT CHAR_LENGTH('MySQL') AS char_length;  -- Output: 5
+
+SELECT REPLACE('Welcome to SQL', 'SQL', 'MySQL') AS replaced;  -- Output: Welcome to MySQL
+
+SELECT REVERSE('MySQL') AS reversed;  -- Output: LQSyM
+
+SELECT UCASE('mysql functions') AS uppercased;  -- Output: MYSQL FUNCTIONS
+
+-- add constraint after table creation
+ALTER TABLE abc
+add constraint xyz
+foreign key (cusId) references cusrtomer (customerid);
+
+-- change column position after table creation
+ALTER TABLE records
+MODIFY COLUMN city VARCHAR(100) FIRST;
+
+ALTER TABLE records
+MODIFY COLUMN age INT AFTER fees;
+
+SELECT * FROM records;
