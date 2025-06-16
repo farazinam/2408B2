@@ -133,9 +133,6 @@ demo2();  // error
 demo2(5);
 demo2(3, 9);
 
-echo "<h3> Non-Parametarized AND Return Function </h3>";
-echo "<h3> Parametarized AND Return Function </h3>";
-
 ?>
 </body>
 </html>
