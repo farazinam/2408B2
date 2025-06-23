@@ -7,6 +7,13 @@ if(isset($_POST["submitBtn"])){
    $pd = $_POST["product_desc"];
 
    $ins = "INSERT INTO products(product_name, product_price, product_description) VALUES ('$pn', '$pp', '$pd')";
-   mysqli_query($conn, $ins);
+   $done = mysqli_query($conn, $ins);
+
+   if($done){
+      echo "<script>
+      alert('Record Inserted');
+      window.location.href='read.php';
+      </script>";
+   }
 }
 ?>

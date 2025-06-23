@@ -14,12 +14,13 @@ $q = mysqli_query($conn, $sel);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 </head>
 <body>
-    <table>
-        <tr>
+    <table class="table table-striped">
+        <tr class="table-dark">
             <th>Product Id</th>
             <th>Product Name</th>
             <th>Product Price</th>
             <th>Product Description</th>
+            <th>Action</th>
         </tr>
 <?php
         while($fetch = mysqli_fetch_assoc($q)){
@@ -29,6 +30,10 @@ $q = mysqli_query($conn, $sel);
             <td> <?php echo $fetch["product_name"] ?> </td>
             <td> <?php echo $fetch["product_price"] ?> </td>
             <td> <?php echo $fetch["product_description"] ?> </td>
+            <td>
+                <a class="btn btn-warning" href="">Edit</a>
+                <a class="btn btn-danger" href="delete.php?id=<?php echo $fetch["product_id"] ?>">Delete</a>
+            </td>
         </tr>
       <?php  } ?>
     </table>
