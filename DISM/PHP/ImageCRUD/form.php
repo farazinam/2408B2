@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 </head>
 <body>
-<form action="create.php" method="post">
+<form action="create.php" method="post" enctype="multipart/form-data">
 
 
 <div class="mb-3">
@@ -23,6 +23,11 @@
 <div class="mb-3">
   <label for="exampleInputPassword1" class="form-label">Product Description</label>
   <input name="product_desc" required type="text" class="form-control" id="exampleInputPassword1">
+</div>
+
+<div class="mb-3">
+  <label for="exampleInputPassword1" class="form-label">Product Image</label>
+  <input name="product_image" required type="file" class="form-control" id="exampleInputPassword1">
 </div>
 
 <button name="submitBtn" type="submit" class="btn btn-primary">Submit</button>
