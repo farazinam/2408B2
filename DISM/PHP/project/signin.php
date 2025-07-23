@@ -1,7 +1,3 @@
-<?php
-include("Admin/connection.php");
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +15,7 @@ include("Admin/connection.php");
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+    
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -38,8 +34,7 @@ include("Admin/connection.php");
 <body>
     <div class="container-xxl position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
-        <div id="spinner"
-            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -47,48 +42,41 @@ include("Admin/connection.php");
         <!-- Spinner End -->
 
 
-        <!-- Sign Up Start -->
+        <!-- Sign In Start -->
         <div class="container-fluid">
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
-                    <form method="post">
-                        <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
-                            <div class="d-flex align-items-center justify-content-between mb-3">
-                                <a href="index.html" class="">
-                                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
-                                </a>
-                                <h3>Sign Up</h3>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" name="name" class="form-control" id="floatingText"
-                                    placeholder="jhondoe">
-                                <label for="floatingText">Username</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="email" name="email" class="form-control" id="floatingInput"
-                                    placeholder="name@example.com">
-                                <label for="floatingInput">Email address</label>
-                            </div>
-                            <div class="form-floating mb-4">
-                                <input type="password" name="password" class="form-control" id="floatingPassword"
-                                    placeholder="Password">
-                                <label for="floatingPassword">Password</label>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                </div>
-                                <a href="">Forgot Password</a>
-                            </div>
-                            <button type="submit" name="signup" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
-                            <p class="text-center mb-0">Already have an Account? <a href="">Sign In</a></p>
+                <form method="post">
+                    <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <a href="index.html" class="">
+                                <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
+                            </a>
+                            <h3>Sign In</h3>
                         </div>
-                    </form>
+                        <div class="form-floating mb-3">
+                            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                            <a href="">Forgot Password</a>
+                        </div>
+                        <button type="submit" name="signin" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
+                        <p class="text-center mb-0">Don't have an Account? <a href="">Sign Up</a></p>
+                    </div>
+</form>
                 </div>
             </div>
         </div>
-        <!-- Sign Up End -->
+        <!-- Sign In End -->
     </div>
 
     <!-- JavaScript Libraries -->
@@ -108,36 +96,40 @@ include("Admin/connection.php");
 
 </html>
 
-
 <?php
+include("Admin/connection.php");
 
-if(isset($_POST["signup"])){
-    $n = $_POST["name"];
+if(isset($_POST["signin"])){
     $e = $_POST["email"];
     $p = $_POST["password"];
-    $role_id = 2;
 
-    $sel = "SELECT * FROM users WHERE email = '$e'";
+    $sel = "SELECT * FROM users WHERE email = '$e' AND `password` = '$p'";
     $q = mysqli_query($conn, $sel);
+
+    $fetch = mysqli_fetch_assoc($q);
 
     $count = mysqli_num_rows($q);
 
-    if($count > 0){
+    if($count == 0){
         echo "<script>
-        alert('Email Already Registered!');
+        alert('Username OR password is Incorrect!');
         </script>";
     }
     else{
-    $ins = "INSERT INTO `users` (`username`, `email`, `password`, `role_id`)
-    VALUES ('$n', '$e', '$p', '$role_id')";
-    $done = mysqli_query($conn, $ins);
+       //$_SESSION["user"] =  $fetch["username"];
+       //$_SESSION["email"] =  $fetch["email"];
+       $_SESSION["role"] =  $fetch["role_id"];
 
-    if($done){
+       if($_SESSION["role"] == 1){
         echo "<script>
-        alert('Account Created Successfully!');
-        window.location.href='signin.php';
+        window.location.href = 'Admin/index.php';
         </script>";
-}
+       }
+       else if($_SESSION["role"] == 2){
+        echo "<script>
+        window.location.href = 'User/index.php';
+        </script>";
+       }
     }
 }
 
