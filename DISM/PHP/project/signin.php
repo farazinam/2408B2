@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,7 +74,7 @@
                             <a href="">Forgot Password</a>
                         </div>
                         <button type="submit" name="signin" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
-                        <p class="text-center mb-0">Don't have an Account? <a href="">Sign Up</a></p>
+                        <p class="text-center mb-0">Don't have an Account? <a href="signup.php">Sign Up</a></p>
                     </div>
 </form>
                 </div>
@@ -103,7 +107,7 @@ if(isset($_POST["signin"])){
     $e = $_POST["email"];
     $p = $_POST["password"];
 
-    $sel = "SELECT * FROM users WHERE email = '$e' AND `password` = '$p'";
+    $sel = "SELECT * FROM users WHERE email = '$e'";
     $q = mysqli_query($conn, $sel);
 
     $fetch = mysqli_fetch_assoc($q);
@@ -116,6 +120,8 @@ if(isset($_POST["signin"])){
         </script>";
     }
     else{
+        if(password_verify($p, $fetch["password"])){
+        
        //$_SESSION["user"] =  $fetch["username"];
        //$_SESSION["email"] =  $fetch["email"];
        $_SESSION["role"] =  $fetch["role_id"];
@@ -131,6 +137,7 @@ if(isset($_POST["signin"])){
         </script>";
        }
     }
+}
 }
 
 ?>

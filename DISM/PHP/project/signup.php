@@ -82,7 +82,7 @@ include("Admin/connection.php");
                                 <a href="">Forgot Password</a>
                             </div>
                             <button type="submit" name="signup" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
-                            <p class="text-center mb-0">Already have an Account? <a href="">Sign In</a></p>
+                            <p class="text-center mb-0">Already have an Account? <a href="signin.php">Sign In</a></p>
                         </div>
                     </form>
                 </div>
@@ -115,7 +115,8 @@ if(isset($_POST["signup"])){
     $n = $_POST["name"];
     $e = $_POST["email"];
     $p = $_POST["password"];
-    $role_id = 2;
+    $hashedPassword = password_hash($p, PASSWORD_DEFAULT);
+    $role_id = 1;
 
     $sel = "SELECT * FROM users WHERE email = '$e'";
     $q = mysqli_query($conn, $sel);
@@ -129,7 +130,7 @@ if(isset($_POST["signup"])){
     }
     else{
     $ins = "INSERT INTO `users` (`username`, `email`, `password`, `role_id`)
-    VALUES ('$n', '$e', '$p', '$role_id')";
+    VALUES ('$n', '$e', '$hashedPassword', '$role_id')";
     $done = mysqli_query($conn, $ins);
 
     if($done){

@@ -1,9 +1,21 @@
-<?php 
+<?php
+session_start();
 include("../Admin/connection.php");
+
+if(isset($_SESSION["role"]) == null){
+    echo "<script>
+    window.location.href = '../signin.php';
+    </script>";
+}
+else if($_SESSION["role"] == 1){
+    echo "<script>
+    window.location.href = '../Admin/index.php';
+    </script>";
+}
 
 $sel = "SELECT * FROM category";
 $q = mysqli_query($conn, $sel);
-?> 
+?>
 
 
 <!DOCTYPE html>
@@ -89,7 +101,7 @@ $q = mysqli_query($conn, $sel);
                     <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
                         <small class="fa fa-search text-body"></small>
                     </a>
-                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
+                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="../logout.php">
                         <small class="fa fa-user text-body"></small>
                     </a>
                     <a class="btn-sm-square bg-white rounded-circle ms-3" href="">

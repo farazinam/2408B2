@@ -1,7 +1,5 @@
-
-<?php 
+<?php
 include("header.php");
-include("../Admin/connection.php");
 
 $sel = "SELECT * FROM products";
 $q = mysqli_query($conn, $sel);
