@@ -122,8 +122,8 @@ if(isset($_POST["signin"])){
     else{
         if(password_verify($p, $fetch["password"])){
         
-       //$_SESSION["user"] =  $fetch["username"];
-       //$_SESSION["email"] =  $fetch["email"];
+       $_SESSION["user"] =  $fetch["username"];
+       $_SESSION["email"] =  $fetch["email"];
        $_SESSION["role"] =  $fetch["role_id"];
 
        if($_SESSION["role"] == 1){

@@ -116,7 +116,7 @@ if(isset($_POST["signup"])){
     $e = $_POST["email"];
     $p = $_POST["password"];
     $hashedPassword = password_hash($p, PASSWORD_DEFAULT);
-    $role_id = 1;
+    $role_id = 2;
 
     $sel = "SELECT * FROM users WHERE email = '$e'";
     $q = mysqli_query($conn, $sel);
