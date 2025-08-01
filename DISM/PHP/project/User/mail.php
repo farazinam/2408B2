@@ -8,6 +8,19 @@ require '../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+
+if(isset($_SESSION["role"]) == null){
+    echo "<script>
+    window.location.href = '../signin.php';
+    </script>";
+}
+else if($_SESSION["role"] == 1){
+    echo "<script>
+    window.location.href = '../Admin/index.php';
+    </script>";
+}
+
+
 $p_id = $_GET['id'];
 
 $query = "SELECT * FROM `products` WHERE `product_id` = '$p_id'";
@@ -29,13 +42,13 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';              // Gmail SMTP server
     $mail->SMTPAuth = true;
-    $mail->Username = 'provide_sender_email';    // Your Gmail address
-    $mail->Password = 'provide_sender_app_password';       // Your Gmail App Password
+    $mail->Username = 'faraz_inam@aptechnorth.edu.pk';    // Your Gmail address
+    $mail->Password = 'kzcg rcnh vrrx isuw';       // Your Gmail App Password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
 
     // Recipients
-    $mail->setFrom('provide_sender_email', 'Aptech Learning pakistan');
+    $mail->setFrom('faraz_inam@aptechnorth.edu.pk', 'Aptech Learning pakistan');
     $mail->addAddress($useremail, $customername);
 
     // Email content

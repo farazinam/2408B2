@@ -2,16 +2,6 @@
 session_start();
 include("../Admin/connection.php");
 
-if(isset($_SESSION["role"]) == null){
-    echo "<script>
-    window.location.href = '../signin.php';
-    </script>";
-}
-else if($_SESSION["role"] == 1){
-    echo "<script>
-    window.location.href = '../Admin/index.php';
-    </script>";
-}
 
 $sel = "SELECT * FROM category";
 $q = mysqli_query($conn, $sel);
@@ -63,7 +53,7 @@ $q = mysqli_query($conn, $sel);
     <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
             <div class="col-lg-6 px-5 text-start">
-                <small><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
+                <small><i class="fa fa-map-marker-alt me-2"></i> <?php echo "Welcome " . "<b style='letter-spacing: 3px;'>" . $_SESSION["user"] . "</b>" ?> </small>
                 <small class="ms-4"><i class="fa fa-envelope me-2"></i>info@example.com</small>
             </div>
             <div class="col-lg-6 px-5 text-end">
