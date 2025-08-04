@@ -1,7 +1,7 @@
 <?php
 include("header.php");
 
-$sel = "SELECT * FROM products";
+$sel = "SELECT * FROM products LIMIT 8";
 $q = mysqli_query($conn, $sel);
 
 

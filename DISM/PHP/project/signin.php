@@ -7,7 +7,7 @@ session_start();
 
 <head>
     <meta charset="utf-8">
-    <title>DASHMIN - Bootstrap Admin Template</title>
+    <title>eCommerce</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -54,7 +54,7 @@ session_start();
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <a href="index.html" class="">
-                                <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
+                                <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>eCommerce</h3>
                             </a>
                             <h3>Sign In</h3>
                         </div>
