@@ -11,8 +11,10 @@ class mycontroller extends Controller
         return view('Home');
     }
 
-    public function About(){
-        return view('About');
+    public function read(){
+        $sel = productsmodel::all();
+        $fetch = compact('sel');
+        return view('read')->with($fetch);
     }
 
     public function Contact(){
@@ -33,5 +35,11 @@ class mycontroller extends Controller
         $data->pimage = $imagePath;
         $data->save();
         return view('create');
+    }
+
+    public function delete($id){
+       $pid = productsmodel::find($id);
+       $pid->delete();
+        return back();
     }
 }

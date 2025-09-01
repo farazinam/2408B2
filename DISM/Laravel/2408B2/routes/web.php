@@ -13,4 +13,7 @@ Route::controller(mycontroller::class)->group(function (){
     Route::get('/Contact', 'Contact');
     Route::get('/create', 'create');
     Route::post('/create', 'store');
+    Route::get('/read', 'read');
+
+    Route::get('/delete/{id}', 'delete')->name('delete');
 });
