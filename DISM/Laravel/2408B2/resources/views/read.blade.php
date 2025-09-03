@@ -49,6 +49,7 @@
         <td> <img src="uploads/{{$item->pimage}}" alt="" width="100px"> </td>
         <td>
             <a href="{{route('delete', ['id'=>$item->id])}}" class="btn btn-danger">Delete</a>
+            <a href="{{route('editing', ['id'=>$item->id])}}" class="btn btn-warning">Update</a>
         </td>
        </tr>
    @endforeach

@@ -42,4 +42,22 @@ class mycontroller extends Controller
        $pid->delete();
         return back();
     }
+
+    public function edit($id){
+        $pid = productsmodel::find($id);
+         return view('update', ['identity'=>$pid]);
+     }
+
+     public function update($idy, Request $req){
+        $pid = productsmodel::find($idy);
+
+        $imagePath = time().'.'.$req->pi->extension();  // creating an image path
+        $req->pi->move(public_path('uploads'), $imagePath);  //move Image in a Folder
+
+        $pid->pname = $req["pn"];
+        $pid->pprice = $req["pp"];
+        $pid->pimage = $imagePath;
+        $pid->save();
+         return redirect('read');
+     }
 }

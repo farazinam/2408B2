@@ -16,4 +16,10 @@ Route::controller(mycontroller::class)->group(function (){
     Route::get('/read', 'read');
 
     Route::get('/delete/{id}', 'delete')->name('delete');
+    Route::get('/edit/{id}', 'edit')->name('editing');
+    Route::post('/update/{idy}', 'update')->name('update');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
