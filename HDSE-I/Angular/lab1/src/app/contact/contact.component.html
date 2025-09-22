@@ -1,0 +1,77 @@
+<p>contact component works!</p>
+
+<!-- <h1>Data Binding</h1>
+
+<h2>One Way Binding</h2>
+<h2>TS to HTML</h2>
+
+<h3>Interpolation</h3>
+
+<p>My name is Faraz Inam</p>
+<p>{{name}}</p>
+
+<input type="{{p}}">
+<input type="text" value="{{name}}">
+<input type="{{chk}}">
+
+<h3>Property Binding</h3>
+<img [src]="link" alt="">
+<input [type]="r">
+
+
+<h2>HTML to TS</h2>
+
+<button (click)="greet()">Click Me</button>
+
+
+
+<h2>Two Way Binding</h2>
+
+<input type="text" [(ngModel)]="name"> -->
+
+
+<h1>Directives</h1>
+
+<h3>Componenet</h3>
+<h3>Structural</h3>
+
+<p *ngIf="isVisible">This is a Paragraph</p>
+
+<div *ngIf="isVisible"></div>
+<button (click)="show()">Show</button>
+<button (click)="hide()">Hide</button>
+
+<button (click)="showHide()">Toggle</button>
+
+<table class="table table-stripped">
+    <tr>
+        <th>Students' Name</th>
+    </tr>
+    <tr *ngFor="let names of studentsRec">{{names}}</tr>
+</table>
+
+<h3>Structural with AT</h3>
+
+@if(isVisible){
+    <p>Yes, Is Visible is TRUE</p>
+}
+@else{
+    <p>Yes, Is Visible is FALSE</p>
+}
+
+<input type="text" [(ngModel)]="offer">
+
+@if(offer == '7'){
+    <p>10% discount</p>
+}
+@else if(offer == '21'){
+    <p>30% discount</p>
+}
+@else if(offer == '30'){
+    <p>50% discount</p>
+}
+@else{
+    <p>No Discount!</p>
+}
+
+<h3>Attribute</h3>
