@@ -74,4 +74,74 @@
     <p>No Discount!</p>
 }
 
+
+<select [(ngModel)]="sel">
+    <option value="">Select Days</option>
+    <option value="7">7 Days</option>
+    <option value="21">21 Days</option>
+    <option value="30">30 Days</option>
+</select>
+
+@if(sel == '7'){
+    <p>10% discount</p>
+}
+@else if(sel == '21'){
+    <p>25% discount</p>
+}
+@else if(sel == '30'){
+    <p>50% discount</p>
+}
+@else{
+    <p>Please Select Days</p>
+}
+
+<hr>
+
+<input type="text" [(ngModel)]="days">
+
+@switch(days){
+    @case('0'){
+    <p>It's Sunday Today!</p>
+    }
+    @case('1'){
+    <p>It's Monday Today!</p>
+    }
+    @case('2'){
+    <p>It's Tuesday Today!</p>
+    }
+    @case('3'){
+    <p>It's Wednesday Today!</p>
+    }
+    @case('4'){
+    <p>It's Thursday Today!</p>
+    }
+    @case('5'){
+    <p>It's Friday Today!</p>
+    }
+    @case('6'){
+    <p>It's Saturday Today!</p>
+    }
+    @default{
+    <p>Incorrect Input!</p>
+    }
+}
+
+<table class="table table-stripped">
+    <tr>
+        <th>Students' Name</th>
+    </tr>
+    @for(n of studentsRec; track n){
+    <tr>{{n}}</tr>
+    }
+</table>
+
 <h3>Attribute</h3>
+
+<p [ngClass]="{'text-success': checking, 'text-danger' : !checking}">Lorem ipsum dolor sit amet.</p>
+
+<select [(ngModel)]="checking">
+    <option value="false">False</option>
+    <option value="true">True</option>
+</select>
+
+<h3 [ngStyle]="{'color':'white', 'background-color':'black'}">Colouring....</h3>

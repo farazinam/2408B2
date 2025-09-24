@@ -47,5 +47,14 @@ studentsRec:string[] = ["Kashan", "Musharraf", "Shoaiz", "Aashir", "Rameez"];
 
 offer:string = '';
 
+sel:string = '';
+
+days:string = '';
+
+
+// Attribute Directives
+// ng Class
+
+checking:boolean = false;
 
 }
