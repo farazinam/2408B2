@@ -1,0 +1,15 @@
+<h1>CREATE</h1>
+
+<form #MyForm="ngForm" (ngSubmit)="createData(MyForm.value)">
+
+    <label for="">Product Name</label>
+    <input type="text" name="pn" ngModel required> <br>
+
+    <label for="">Product Price</label>
+    <input type="number" name="pp" ngModel required> <br>
+
+    <label for="">Product Description</label>
+    <input type="text" name="pd" ngModel required> <br>
+
+    <button type="submit" [disabled]="MyForm.invalid">Submit</button>
+</form>
