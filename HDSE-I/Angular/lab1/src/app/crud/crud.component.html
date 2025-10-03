@@ -13,3 +13,27 @@
 
     <button type="submit" [disabled]="MyForm.invalid">Submit</button>
 </form>
+
+<hr>
+
+<button (click)="readData()">Fetch Records</button>
+
+<br>
+
+<table class="table">
+    <tr>
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Product Description</th>
+    </tr>
+
+    @for(read of fetch; track read){
+        <tr>
+            <td>{{read.id}}</td>
+            <td>{{read.pn}}</td>
+            <td>{{read.pp}}</td>
+            <td>{{read.pd}}</td>
+        </tr>
+    }
+</table>
