@@ -237,3 +237,134 @@ SELECT * FROM customers WHERE age = @age;
 
 SELECT * FROM customers WHERE city = 'Karachi';
 
+
+-- ---------------- D A Y - 6 -------------------
+
+-- CUSTOM/USER-DEFINED FUNCTION
+
+-- NON-PARAMETARIZED
+
+CREATE FUNCTION xyz()
+RETURNS VARCHAR(100)
+AS
+BEGIN 
+DECLARE @name VARCHAR(50)
+SET @name = 'Ali';
+RETURN @name
+END
+
+SELECT dbo.xyz();
+
+CREATE FUNCTION num()
+RETURNS INT
+AS
+BEGIN 
+DECLARE @n INT
+SET @n = 200;
+RETURN @n
+END
+
+SELECT dbo.num();
+
+
+-- PARAMETARIZED
+
+CREATE FUNCTION fne(
+@fname VARCHAR(50),
+@lname VARCHAR(50)
+)
+RETURNS VARCHAR(100)
+AS
+BEGIN 
+DECLARE @fullname VARCHAR(50)
+SET @fullname = @fname + ' ' + @lname;
+RETURN @fullname
+END
+
+SELECT dbo.fne('faraz' , 'inam');
+
+
+-- STORED PRODCEDURE
+
+CREATE PROCEDURE sel
+AS 
+BEGIN
+SELECT * FROM product;
+END
+
+sel
+-- or
+EXEC sel
+-- or
+EXECUTE sel
+
+CREATE PROCEDURE selWithCon
+AS 
+BEGIN
+SELECT * FROM product WHERE product_price >= 2000;
+END
+
+selWithCon
+
+
+CREATE PROCEDURE selWithConPara
+@pprice INT
+AS 
+BEGIN
+SELECT * FROM product WHERE product_price = @pprice;
+END
+
+selWithConPara 3100;
+
+
+
+CREATE PROCEDURE selWithConPara2
+@pname VARCHAR(100),
+@pprice INT
+AS 
+BEGIN
+SELECT * FROM product WHERE product_name = @pname OR product_price = @pprice;
+END
+
+selWithConPara2 'CPU' , 3100;
+
+ALTER PROCEDURE selWithConPara2
+@pname VARCHAR(100),
+@pprice INT
+AS 
+BEGIN
+SELECT * FROM product WHERE product_name = @pname AND product_price = @pprice;
+END
+
+
+DROP PROCEDURE sel
+
+sp_helptext selWithCon
+
+
+-- ERROR HANDLING
+
+PRINT 2/0; -- Divide by zero error encountered.
+
+BEGIN TRY
+DECLARE @a INT = 7, @b INT = 0;
+PRINT @a/@b;
+END TRY
+
+BEGIN CATCH
+PRINT 'Denominator Could Not Be ZERO - Syntax Error'
+END CATCH
+
+
+BEGIN TRY
+DECLARE @x INT = 7, @y INT = 0;
+PRINT @x/@y;
+END TRY
+
+BEGIN CATCH
+    PRINT 'Error Number: ' + CAST(ERROR_NUMBER() AS VARCHAR);
+    PRINT 'Error Message: ' + ERROR_MESSAGE();
+    PRINT 'Severity: ' + CAST(ERROR_SEVERITY() AS VARCHAR);
+    PRINT 'State: ' + CAST(ERROR_STATE() AS VARCHAR);
+    PRINT 'Line: ' + CAST(ERROR_LINE() AS VARCHAR);
+END CATCH
