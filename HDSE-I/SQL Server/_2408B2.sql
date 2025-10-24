@@ -368,3 +368,128 @@ BEGIN CATCH
     PRINT 'State: ' + CAST(ERROR_STATE() AS VARCHAR);
     PRINT 'Line: ' + CAST(ERROR_LINE() AS VARCHAR);
 END CATCH
+
+
+-- ---------------- D A Y - 7 -------------------
+
+-- JOIN
+
+SELECT * FROM product;
+SELECT * FROM customers;
+
+
+-- INNER JOIN
+
+SELECT * FROM product
+INNER JOIN customers
+ON product_id = p_id;
+
+SELECT * FROM product
+INNER JOIN customers
+ON product.product_id = customers.p_id;
+
+SELECT customers.name, customers.city, product.product_name, product.product_price, product.product_description FROM product
+INNER JOIN customers
+ON product.product_id = customers.p_id;
+
+-- ALAIS
+SELECT p.product_name, p.product_price, p.product_description, c.name, c.city
+FROM product AS p
+INNER JOIN customers AS c
+ON p.product_id = c.p_id;
+
+-- INSERT INTO customers (name, age, city, email, p_id)
+-- VALUES ('sheraz', 22, 'Karachi', 'sheraz@gmail.com', null);
+
+--INSERT INTO product (product_name, product_price)
+--VALUES('book', 4400),
+--('AC', 120000);
+
+
+-- LEFT JOIN 
+
+SELECT p.product_name, p.product_price, p.product_description, c.name, c.city
+FROM product AS p
+LEFT JOIN customers AS c
+ON p.product_id = c.p_id;
+
+
+-- RIGHT JOIN 
+
+SELECT p.product_name, p.product_price, p.product_description, c.name, c.city
+FROM product AS p
+RIGHT JOIN customers AS c
+ON p.product_id = c.p_id;
+
+
+-- FULL JOIN 
+
+SELECT p.product_name, p.product_price, p.product_description, c.name, c.city
+FROM product AS p
+FULL JOIN customers AS c
+ON p.product_id = c.p_id;
+
+
+-- ---------------- D A Y - 8 -------------------
+
+CREATE TABLE orders (
+order_id INT PRIMARY KEY IDENTITY,
+p_id INT,
+c_id INT,
+o_qty INT,
+o_date DATETIME default GETDATE(),
+FOREIGN KEY (p_id) REFERENCES product (product_id),
+FOREIGN KEY (c_id) REFERENCES customers (customer_id),
+);
+
+
+
+SELECT * FROM customers;
+
+ALTER TABLE customers DROP COLUMN p_id;
+
+UPDATE customers SET p_id = NULL WHERE CITY = 'Lahore';
+
+-- To Know the name of Contraint
+    SELECT
+        fk.name AS ForeignKeyName
+    FROM
+        sys.foreign_keys AS fk
+    WHERE
+        fk.parent_object_id = OBJECT_ID('customers'); -- Replace 'YourTableName'
+
+-- DROP Constraint
+	ALTER TABLE customers
+    DROP CONSTRAINT FK__customers__p_id__4F7CD00D;
+
+SELECT * FROM product;
+SELECT * FROM customers;
+SELECT * FROM orders;
+
+INSERT INTO orders (p_id, c_id, o_qty)
+VALUES (101, 1, 2),
+(101, 4, 1),
+(103, 1, 3),
+(101, 9, 2);
+
+-- JOINS (Three Tables)
+SELECT * FROM orders
+JOIN customers
+ON orders.c_id = customers.customer_id
+JOIN product
+ON orders.p_id = product.product_id;
+
+SELECT customers.name, customers.city, product.product_name, product.product_price, orders.o_qty, orders.o_date FROM orders
+JOIN customers
+ON orders.c_id = customers.customer_id
+JOIN product
+ON orders.p_id = product.product_id;
+
+SELECT c.name, c.city, p.product_name, p.product_price, o.o_qty, o.o_date 
+FROM orders o
+JOIN customers c
+ON o.c_id = c.customer_id
+JOIN product p
+ON o.p_id = p.product_id;
+
+-- INDEXES
