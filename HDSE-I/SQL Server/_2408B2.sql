@@ -493,3 +493,97 @@ JOIN product p
 ON o.p_id = p.product_id;
 
 -- INDEXES
+
+-- ---------------- D A Y - 9 -------------------
+
+-- INDEXES
+
+-- TWO TYPES OD INDEX
+
+-- _____________ Clustered Index ______________ --  EXAMPLE: Dictionary
+
+--A clustered index determines the physical order of rows in a table.
+--Each table can have only one clustered index because the rows are physically arranged based on this index.
+--The Primary Key constraint automatically creates a clustered index.
+
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,  -- Automatically creates a clustered index
+    Name VARCHAR(100),
+    Salary DECIMAL(10,2)
+);
+
+-- OR
+
+CREATE CLUSTERED INDEX IX_Employees_Salary  
+ON Employees (Salary);  -- Manually creating a clustered index
+
+
+
+-- _____________ Non-Clustered Index ______________ -- EXAMPLE: Book Index
+
+--A non-clustered index does not affect the physical order of rows.
+--Instead, it creates a separate structure to store index key values with pointers to the actual table rows.
+--A table can have multiple non-clustered indexes.
+
+CREATE NONCLUSTERED INDEX IX_Employees_Name  
+ON Employees (Name);
+
+--OR
+
+CREATE INDEX IX_Employees_Name    -- NONCLUSTERED keyword is optional in nonclustered type
+ON Employees (Name);
+
+sp_helpindex yourindexname;
+
+
+-- TRIGGER
+
+INSERT INTO customers (name, age, city, email)
+VALUES ('Zahid', 22, 'Lahore', 'z@gmail.com');
+
+--AFTER INSERT
+CREATE TRIGGER InsCustomer
+ON customers
+AFTER INSERT
+AS 
+BEGIN
+PRINT 'Congratulations Record Inserted';
+END
+
+INSERT INTO customers (name, age, city, email)
+VALUES ('Rahim', 21, 'Lahore', 'rahim@gmail.com');
+
+--AFTER DELETE
+CREATE TRIGGER DelCustomer
+ON customers
+AFTER DELETE
+AS 
+BEGIN
+PRINT 'Congratulations Record DELETED';
+END
+
+DELETE FROM customers WHERE name = 'zahid';
+
+--AFTER UPDATE
+CREATE TRIGGER UpdCustomer
+ON customers
+AFTER UPDATE
+AS 
+BEGIN
+PRINT 'Congratulations Record UPDATED';
+END
+
+UPDATE customers SET name = 'Mubashir' WHERE name = 'Rahim';
+
+
+-- INSTEAD OF
+CREATE TRIGGER delCustomerInsOf
+ON customers
+INSTEAD OF DELETE
+AS 
+BEGIN
+PRINT 'Sorry! Delete nhi ho sakta :(';
+END
+
+DELETE FROM customers WHERE name = 'Mubashir';
+
