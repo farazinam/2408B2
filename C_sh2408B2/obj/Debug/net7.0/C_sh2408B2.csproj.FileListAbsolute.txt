@@ -1,0 +1,14 @@
+C:\Users\farazinam\source\repos\C_sh2408B2\C_sh2408B2\bin\Debug\net7.0\C_sh2408B2.exe
+C:\Users\farazinam\source\repos\C_sh2408B2\C_sh2408B2\bin\Debug\net7.0\C_sh2408B2.deps.json
+C:\Users\farazinam\source\repos\C_sh2408B2\C_sh2408B2\bin\Debug\net7.0\C_sh2408B2.runtimeconfig.json
+C:\Users\farazinam\source\repos\C_sh2408B2\C_sh2408B2\bin\Debug\net7.0\C_sh2408B2.dll
+C:\Users\farazinam\source\repos\C_sh2408B2\C_sh2408B2\bin\Debug\net7.0\C_sh2408B2.pdb
+C:\Users\farazinam\source\repos\C_sh2408B2\C_sh2408B2\obj\Debug\net7.0\C_sh2408B2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\farazinam\source\repos\C_sh2408B2\C_sh2408B2\obj\Debug\net7.0\C_sh2408B2.AssemblyInfoInputs.cache
+C:\Users\farazinam\source\repos\C_sh2408B2\C_sh2408B2\obj\Debug\net7.0\C_sh2408B2.AssemblyInfo.cs
+C:\Users\farazinam\source\repos\C_sh2408B2\C_sh2408B2\obj\Debug\net7.0\C_sh2408B2.csproj.CoreCompileInputs.cache
+C:\Users\farazinam\source\repos\C_sh2408B2\C_sh2408B2\obj\Debug\net7.0\C_sh2408B2.dll
+C:\Users\farazinam\source\repos\C_sh2408B2\C_sh2408B2\obj\Debug\net7.0\refint\C_sh2408B2.dll
+C:\Users\farazinam\source\repos\C_sh2408B2\C_sh2408B2\obj\Debug\net7.0\C_sh2408B2.pdb
+C:\Users\farazinam\source\repos\C_sh2408B2\C_sh2408B2\obj\Debug\net7.0\C_sh2408B2.genruntimeconfig.cache
+C:\Users\farazinam\source\repos\C_sh2408B2\C_sh2408B2\obj\Debug\net7.0\ref\C_sh2408B2.dll
