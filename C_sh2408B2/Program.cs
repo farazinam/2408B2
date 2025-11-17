@@ -201,50 +201,274 @@ bool labDoor = false;
 //    }
 //}
 
-if (mainGate == true)
-{
-    Console.WriteLine("Assalam o Alaikum to Guard");
-    if (corridorGate == true)
-    {
-        Console.WriteLine("Assalam o Alaikum to Receptionist");
-        if (labDoor)
-        {
-            Console.WriteLine("Assalam o Alaikum Sir!");
-        }
-        else
-        {
-            Console.WriteLine("Classroom Door is Closed");
-        }
-    }
-    else
-    {
-        Console.WriteLine("Corrodir Gate is Closed");
-    }
-}
-else
-{
-    Console.WriteLine("Main Gate is Closed");
-}
+//if (mainGate == true)
+//{
+//    Console.WriteLine("Assalam o Alaikum to Guard");
+//    if (corridorGate == true)
+//    {
+//        Console.WriteLine("Assalam o Alaikum to Receptionist");
+//        if (labDoor)
+//        {
+//            Console.WriteLine("Assalam o Alaikum Sir!");
+//        }
+//        else
+//        {
+//            Console.WriteLine("Classroom Door is Closed");
+//        }
+//    }
+//    else
+//    {
+//        Console.WriteLine("Corrodir Gate is Closed");
+//    }
+//}
+//else
+//{
+//    Console.WriteLine("Main Gate is Closed");
+//}
 
-// -- Switch Case
-string day = "Sunday";
+//// -- Switch Case
+//string day = "Sunday";
 
-switch (day)
+//switch (day)
+//{
+//    case "Monday":
+//    case "Wednesday": 
+//    case "Friday":
+//    Console.WriteLine("Class Today");
+//    break; 
+//    case "Tuesday":
+//    case "Thursday":
+//    case "Saturday":
+//    Console.WriteLine("NO Class Today");
+//    break;
+//    case "Sunday":
+//    Console.WriteLine("Holiday");
+//    break;
+//    default:
+//    Console.WriteLine("Provide Valid Day");
+//    break;
+//}
+
+
+
+//----------------- Day 4 ----------------------------
+
+//Console.WriteLine("Please provide a Day");
+//string day = Console.ReadLine();
+//day = day.ToLower();
+//switch (day)
+//{
+//    case "tuesday":
+//    case "thursday":
+//    case "saturday":
+//        Console.WriteLine("No Class");
+//        break;
+//    case "sunday":
+//        Console.WriteLine("Holiday");
+//        break;
+//    case "monday":
+//    case "wednesday":
+//    case "friday":
+//        Console.WriteLine("selected Time");
+//        string time = Console.ReadLine();
+//        switch (time)
+//        {
+//            case "9-11":
+//                Console.WriteLine("Its time to Enter in a Class");
+//                break;
+//            case "11-1":
+//                Console.WriteLine("Class End");
+//                break;
+//            case "3-5":
+//                Console.WriteLine("No Class Time");
+//                break;
+//            default:
+//                Console.WriteLine("please Select Correct Time");
+//                break;
+//        }
+//        break;
+//    default:
+//        Console.WriteLine("please Select Correct Day");
+//        break;
+//}
+
+
+// ---- Loops (For, While, Do While)
+
+//for (var a = 1; a <= 10; a++)
+//{
+//    Console.WriteLine(a);
+//}
+
+//Console.WriteLine("Odd Number");
+//for (var a = 1; a <= 20; a= a+2)
+//{
+//    Console.WriteLine(a);
+//}
+
+//Console.WriteLine("Even Numbers");
+//for (var a = 0; a <= 20; a = a + 2)
+//{
+//    Console.WriteLine(a);
+//}
+
+//Console.WriteLine("Odd Numbers Using Continue");
+//for (var a = 0; a <= 20; a++)
+//{
+//    if (a%2 == 0)
+//    {
+//        continue;
+//    }
+//    Console.WriteLine(a);
+//}
+
+//Console.WriteLine("Table");
+////var num = 9;
+//int num = int.Parse(Console.ReadLine());
+
+//for (var n = 1; n <=10; n++)
+//{
+//    Console.WriteLine(num + " X " + n + " = " + num*n);
+//}
+
+// Nested For
+//for (var i = 1; i <= 10; i++)
+//{
+//    for (var j = 1; j<=10; j++)
+//    {
+//        Console.WriteLine(j + " Faraz Inam");
+//    }
+//}
+
+//for (var i = 1; i <= 10; i++)
+//{
+//    for (var j = 1; j <= i; j++)
+//    {
+//        Console.Write("*");
+//    }
+//    Console.WriteLine();
+//}
+//for (var i = 10; i >= 1; i--)
+//{
+//    for (var j = 1; j <= i; j++)
+//    {
+//        Console.Write("*");
+//    }
+//    Console.WriteLine();
+//}
+
+
+//----------------- Day 5 ----------------------------
+
+// -- while
+
+//var w = 1;
+//while (w < 10)
+//{
+//    if (w == 2)
+//    {
+//        break;
+//    }
+//    Console.WriteLine(w + " This is while loop");
+//    w++;
+//}
+
+//var w2 = 1;
+//while (w2 < 10)
+//{
+//    Console.WriteLine(w2 + " This is while loop");
+//    if (w2 == 2)
+//    {
+//        break;
+//    }
+//    w2++;
+//}
+
+//var w3 = 1;
+//while (w3 < 1)
+//{
+//    Console.WriteLine(w3 + " This is while loop");
+//    w3++;
+//}
+
+//var dw = 1;
+//do
+//{
+//    Console.WriteLine(dw + " This is do while loop");
+//    dw++;
+//}
+//while (dw < 1);
+
+
+// ---- Brak and exit and their differences
+
+//Console.WriteLine("Welcome");
+//var w2 = 1;
+//while (w2 < 10)
+//{
+//    Console.WriteLine(w2 + " This is while loop");
+//    if (w2 == 2)
+//    {
+//        break;
+//    }
+//    w2++;
+//}
+//Console.WriteLine("Good Bye");
+
+//Console.WriteLine("------------------");
+
+//Console.WriteLine("Welcome");
+//var w3 = 1;
+//while (w3 < 10)
+//{
+//    Console.WriteLine(w3 + " This is while loop");
+//    if (w3 == 2)
+//    {
+//        Environment.Exit(0);
+//    }
+//    w3++;
+//}
+//Console.WriteLine("Good Bye");
+
+
+// -- goto
+
+//int number;
+
+//start:
+//Console.WriteLine("Enter A Positive Number");
+//number = int.Parse(Console.ReadLine());
+
+//if (number <= 0)
+//{
+//    Console.WriteLine(number + " Is not a Positive Number");
+//    goto start;
+//}
+
+//Console.WriteLine("Your Positive Number is " + number);
+
+
+//Run Program Until the user don't not want to close
+string ask;
+do
 {
-    case "Monday":
-    case "Wednesday": 
-    case "Friday":
-    Console.WriteLine("Class Today");
-    break; 
-    case "Tuesday":
-    case "Thursday":
-    case "Saturday":
-    Console.WriteLine("NO Class Today");
-    break;
-    case "Sunday":
-    Console.WriteLine("Holiday");
-    break;
-    default:
-    Console.WriteLine("Provide Valid Day");
-    break;
+    // Sum of TWO integer values
+    Console.WriteLine("Enter First Number?");
+    int num1 = int.Parse(Console.ReadLine());
+
+    Console.WriteLine("Enter Second Number?");
+    int num2 = int.Parse(Console.ReadLine());
+
+    int output = num1 + num2;
+
+    Console.WriteLine("Addition of Two Numbers is " + output);  //concat
+    Console.WriteLine("Do You Want to continue: Yes/No");
+    ask = Console.ReadLine().ToLower();
 }
+while (ask == "yes");
+
+Console.WriteLine("Program Exit");
+
+
+
+
