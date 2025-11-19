@@ -400,7 +400,7 @@ bool labDoor = false;
 //while (dw < 1);
 
 
-// ---- Brak and exit and their differences
+// ---- Break and exit and their differences
 
 //Console.WriteLine("Welcome");
 //var w2 = 1;
@@ -431,7 +431,7 @@ bool labDoor = false;
 //Console.WriteLine("Good Bye");
 
 
-// -- goto
+//// -- goto
 
 //int number;
 
@@ -448,27 +448,131 @@ bool labDoor = false;
 //Console.WriteLine("Your Positive Number is " + number);
 
 
-//Run Program Until the user don't not want to close
-string ask;
-do
+////Run Program Until the user don't not want to close
+//string ask;
+//do
+//{
+//    // Sum of TWO integer values
+//    Console.WriteLine("Enter First Number?");
+//    int num1 = int.Parse(Console.ReadLine());
+
+//    Console.WriteLine("Enter Second Number?");
+//    int num2 = int.Parse(Console.ReadLine());
+
+//    int output = num1 + num2;
+
+//    Console.WriteLine("Addition of Two Numbers is " + output);  //concat
+//    Console.WriteLine("Do You Want to continue: Yes/No");
+//    ask = Console.ReadLine().ToLower();
+//}
+//while (ask == "yes");
+
+//Console.WriteLine("Program Exit");
+
+
+
+
+//----------------- Day 6 ----------------------------
+
+// --- ARRAYS
+
+// --- Types --
+// -- One Dimentional
+// -- Multi-Dimentional
+// -- Jagged
+
+
+//// -- One Dimentional
+
+//int[] age = new int[5];  // Declaration
+
+//// initialization
+//age[0] = 22;
+//age[1] = 17;
+//age[2] = 27;
+//age[3] = 24;
+//age[4] = 19;
+
+//int[] rollno = new int[5] {101, 102, 103, 104, 105};
+//string[] city = {"Karachi", "Lahore", "Islamabad", "Peshawar", "Faisalabad"};
+
+//Console.WriteLine(age[0]);
+//Console.WriteLine(age[1]);
+//Console.WriteLine(age[2]);
+//Console.WriteLine(age[3]);
+//Console.WriteLine(age[4]);
+
+//Console.WriteLine(age[0] + " " + age[1] + " " + age[2] + " " + age[3] + " " + age[4]);
+//Console.WriteLine(5 + "5");
+
+//Array.Sort(age);
+//Console.WriteLine(age[0]);
+//Console.WriteLine(age[1]);
+//Console.WriteLine(age[2]);
+
+//Console.WriteLine(city[0]);
+//Console.WriteLine(city[1]);
+//Console.WriteLine(city[2]);
+
+//Array.Sort(city);
+//Console.WriteLine(city[0]);
+//Console.WriteLine(city[1]);
+//Console.WriteLine(city[2]);
+
+//Array.Reverse(city);
+//Console.WriteLine(city[0]);
+//Console.WriteLine(city[1]);
+//Console.WriteLine(city[2]);
+
+//for (var cities = 0; cities < 3; cities++)
+//{
+//    Console.WriteLine(city[cities]);
+//}
+
+//for (var cities = 0; cities < city.Length; cities++)
+//{
+//    Console.WriteLine(city[cities]);
+//}
+
+//foreach (var shehr in city)
+//{
+//    Console.WriteLine(shehr);
+//}
+
+
+
+// -- Multi-Dimentional
+
+//int[,] multi = new int[3, 3]
+//{
+//    {1, 2, 3},
+//    {5, 6, 7},
+//    {8, 9, 10},
+//};
+
+////Console.WriteLine(multi[1, 2]);
+
+//foreach (var m in multi)
+//{
+//    Console.Write(m + " ");
+//}
+
+
+// -- Jagged
+
+//int[][] jagged = new int[3][];
+
+//jagged[0] = new int[] { 1, 2 };
+//jagged[1] = new int[] { 11, 22, 33 };
+//jagged[2] = new int[] { 111, 222, 333, 444, 555 };
+
+//Console.WriteLine(jagged[2][3]);
+
+int[][] jaggedArray = new int[][]
 {
-    // Sum of TWO integer values
-    Console.WriteLine("Enter First Number?");
-    int num1 = int.Parse(Console.ReadLine());
-
-    Console.WriteLine("Enter Second Number?");
-    int num2 = int.Parse(Console.ReadLine());
-
-    int output = num1 + num2;
-
-    Console.WriteLine("Addition of Two Numbers is " + output);  //concat
-    Console.WriteLine("Do You Want to continue: Yes/No");
-    ask = Console.ReadLine().ToLower();
-}
-while (ask == "yes");
-
-Console.WriteLine("Program Exit");
-
-
-
+new int[] { 1, 2 },
+new int[] { 3, 4, 5 },
+new int[] { 6 }
+};
+Console.WriteLine(jaggedArray[1][2]);
 
