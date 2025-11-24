@@ -3,6 +3,7 @@
 
 //----------------- Day 1 ----------------------------
 
+using System.Collections;
 using System.Diagnostics;
 using System.Numerics;
 
@@ -558,7 +559,7 @@ bool labDoor = false;
 //}
 
 
-// -- Jagged
+//// -- Jagged
 
 //int[][] jagged = new int[3][];
 
@@ -568,11 +569,212 @@ bool labDoor = false;
 
 //Console.WriteLine(jagged[2][3]);
 
-int[][] jaggedArray = new int[][]
-{
-new int[] { 1, 2 },
-new int[] { 3, 4, 5 },
-new int[] { 6 }
-};
-Console.WriteLine(jaggedArray[1][2]);
+//int[][] jaggedArray = new int[][]
+//{
+//new int[] { 1, 2 },
+//new int[] { 3, 4, 5 },
+//new int[] { 6 }
+//};
+//Console.WriteLine(jaggedArray[1][2]);
 
+
+
+//----------------- Day 7 ----------------------------
+
+// -- COLLECTOIN
+
+// 1. Non-Generic
+// 2. Generic
+
+
+// 1. Non-Generic
+
+//Array List
+
+//ArrayList al = new ArrayList();
+
+//al.Add("Ali");
+//al.Add(22);
+//al.Add(5.2f);
+
+//al.Remove("Ali");
+//al.RemoveAt(1);
+
+//Console.WriteLine(al[0]);
+//Console.WriteLine(al[1]);
+//Console.WriteLine(al[2]);
+
+//al.Add("Aptech");
+//Console.WriteLine(al.Count);
+//Console.WriteLine(al.Contains("Ali"));
+
+//foreach (var data in al)
+//{
+//    Console.WriteLine(data);
+//}
+
+
+////Stack
+
+//Stack st = new Stack();
+//st.Push("Karachi");
+//st.Push("Lahore");
+//st.Push("Islamabad");
+//st.Push(22);
+//st.Push(true);
+
+//st.Pop();
+
+//foreach (var stack in st)
+//{
+//    Console.WriteLine(stack);
+//}
+
+
+// Hash table
+//Hashtable ht = new Hashtable();
+
+//ht.Add("stdname", "Ali");
+//ht.Add("age", 22);
+//ht.Add("city", "lahore");
+//ht.Add("isEligible", true);
+
+//Console.WriteLine(ht["city"]);
+//Console.WriteLine(ht.Contains("age"));
+//Console.WriteLine(ht.Count);
+
+//ht.Remove("city");
+
+//Console.WriteLine(ht.Count);
+
+//foreach (DictionaryEntry hashtable in ht)
+//{
+//    //Console.WriteLine(hashtable);
+//    Console.WriteLine(hashtable.Key + ": " + hashtable.Value);
+//}
+
+//Sorted List
+//SortedList sl = new SortedList();
+
+//sl.Add(0, "Ali");
+//sl.Add(2, "Bilal");
+//sl.Add(1, "Haris");
+//sl.Add(4, "Abid");
+//sl.Add(3, "Iqbal");
+
+//Console.WriteLine(sl[3]);
+
+//foreach (DictionaryEntry sortedlist in sl)
+//{
+//    //Console.WriteLine(hashtable);
+//    Console.WriteLine(sortedlist.Value);
+//}
+
+
+//----------------- Day 8 ----------------------------
+
+// 2. Generic
+
+// list
+//ArrayList al2 = new ArrayList();  // Non generic
+
+//list
+//List<string> li = new List<string>();  // generic
+//li.Add("faraz");
+//li.Add("ali");
+//li.Add("ahsan");
+//li.Add("muzammil");
+////li.Add(12); not possible due to ty casting (generic)
+
+//foreach (string list in li)
+//{
+//    Console.Write(list + " ");
+//}
+
+////stack
+//Stack<int> st = new Stack<int>();
+
+//st.Push(22);
+//st.Push(41);
+//st.Push(33);
+
+//foreach (int stack in st)
+//{
+//    Console.WriteLine(stack);
+//}
+
+////Queue
+//Queue<string> q = new Queue<string>();
+//q.Enqueue("Ali");
+//q.Enqueue("Bilal");
+//q.Enqueue("Amir");
+
+//Console.WriteLine(q.Dequeue());
+
+////Dictionary
+//Dictionary<string, int> d = new Dictionary<string, int>();
+
+//d.Add("rollno", 101);
+//d.Add("age", 22);
+//d.Add("cnic", 424018787);
+//d.Add("postalcode", 9806);
+
+////Console.WriteLine(d["cnic"]);
+
+//foreach (var dic in d)
+//{
+//    Console.WriteLine(dic.Key + ": " + dic.Value);
+//}
+
+
+
+// --- Methods / Functions
+
+// custom fn
+
+// no parametarize and no return
+void npnr()
+{
+    Console.WriteLine("This is non para and No Return function");
+}
+
+npnr();
+
+// parametarize and no return
+
+void pnr(string n)
+{
+    Console.WriteLine("My name is " + n);
+}
+void pnr2(int a)
+{
+    Console.WriteLine("My age is " + a);
+}
+void pnr3(int num1 , int num2 = 3)
+{
+    Console.WriteLine(num1 + num2);
+}
+
+//pnr("shah qasim");
+//pnr2(19);
+pnr3(4, 6);
+pnr3(4);
+
+
+// parametarize and return
+
+//string pr(string city)
+//{
+//    return "Hello Parametraized and Return Function " + city;
+//}
+//string pr2(int num)
+//{
+//    return "Hello Parametraized and Return Function " + num;
+//}
+
+//string c = pr("Lahore");
+//Console.WriteLine(c);
+
+//Console.WriteLine(pr("Karachi")); 
+
+//Console.WriteLine(pr2(123)); 
