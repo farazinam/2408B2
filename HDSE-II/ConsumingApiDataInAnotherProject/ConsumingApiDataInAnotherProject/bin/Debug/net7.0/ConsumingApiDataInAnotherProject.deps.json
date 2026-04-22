@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "ConsumingApiDataInAnotherProject/1.0.0": {
+        "runtime": {
+          "ConsumingApiDataInAnotherProject.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsumingApiDataInAnotherProject/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,12 @@
+﻿     <form asp-controller="Home" asp-action="index" method="post">
+         <input type="text" name="movietitle" />
+         <button type="submit">Get Movie</button>
+     </form> 
+
+
+<h1> Title: @ViewBag.t</h1>
+<h2> Genre: @ViewBag.genre</h2>
+<h2> Language: @ViewBag.language</h2>
+<h2> Country: @ViewBag.country</h2>
+<img src="@ViewBag.poster" />
+
