@@ -223,5 +223,125 @@ void main(){
 // DefParaFn("Aptech");
 
 
+// LIST 
+// List<String> stdname = ["Ali", "Ahsan", "Ahmed"];
+// print(stdname[1]);
+
+// print(stdname[3]);
+// stdname.add("Adil");
+// print(stdname[3]);
+// stdname.add(123);  //type error
+// print(stdname.length);
+
+// var employee = ["Subhan", "Shahzaib", 123, true, "Shahzaib"];
+// print(employee[2]);
+// employee.add(2.5);
+// print(employee);
+
+// print(employee[0]);
+// print(employee[1]);
+// print(employee[2]);
+// print(employee[3]);
+
+// for(var i = 0; i < employee.length; i++){
+//   print('$i ${employee[i]}');
+// }
+
+// var fixedList = List<int>.filled(4, 0);
+
+// fixedList[0] = 2;
+// fixedList[1] = 4;
+// fixedList[2] = 6;
+// fixedList[3] = 8;
+
+// print(fixedList[3]);
+
+//SET
+// Set<String> setData = {"Subhan", "Shahzaib","Subhan"};
+// print(setData);
+// setData.add("Ahmed");
+// print(setData);
+
+// Set<dynamic> setData2 = {"Subhan", "Shahzaib","Subhan", 123};
+// print(setData2);
+// setData.add("Ahmed");
+// print(setData2);
+
+// Map<String, dynamic> setData = {
+//   "name": "Ali",
+//   "age": 22,
+//   "city": "Karachi",
+//   "isEligible": true
+//   };
+
+//   // print(setData["age"]);
+//   // setData["Address"] = "North Karachi";
+//   // print(setData["Address"]);
+
+//   print(setData.keys);
+//   print(setData.values);
+
+// --------------- Grade Calculator ---------------
+
+List<dynamic> stdInfo = [];
+List<String> courseName = [];
+List<double> courseMarks = [];
+
+int courseCount;
+double totalMarks = 0;
+double obtMarks = 0;
+double percentage = 0;
+String grade = "";
+
+//std info
+print("Enter Enrollment # :");
+stdInfo.add(stdin.readLineSync() ?? "Not Provided");
+
+print("Enter Name");
+stdInfo.add(stdin.readLineSync() ?? "Not Provided");
+
+//total # of course
+print("How many subjects do you have");
+courseCount = int.parse(stdin.readLineSync() ?? "0");
+
+totalMarks = courseCount*100;
+
+//courses marks
+for(var i = 0; i < courseCount; i++){
+  print("Enter the name of ${i + 1}");
+  courseName.add(stdin.readLineSync() ?? "Not Provided");
+
+  print("Enter the Marks of ${courseName[i]}");
+  courseMarks.add(double.parse(stdin.readLineSync() ?? "Not Provided"));
+
+  obtMarks += courseMarks[i];
+}
+
+percentage = obtMarks/totalMarks*100;
+
+if(percentage <= 100 && percentage >= 80){
+  grade = "A+";
+}
+else if(percentage <= 79 && percentage >= 70){
+grade = "A";
+}
+else if(percentage <= 69 && percentage >= 60){
+grade = "B";
+}
+else if(percentage <= 59 && percentage >= 50){
+grade = "C";
+}
+else if(percentage <= 49 && percentage >= 40){
+grade = "D";
+}
+else if(percentage <= 30 && percentage >= 0){
+grade = "Fail";
+}
+
+print("\n Student Result Summary");
+print("Enrollment # : ${stdInfo[0]}");
+print("Student Name : ${stdInfo[1]}");
+print("Percentage : $percentage");
+print("Student Grade : $grade");
 
 }
