@@ -219,8 +219,15 @@ void main(){
 //   print(name);
 // }
 
-// // DefParaFn();
+// DefParaFn();
 // DefParaFn("Aptech");
+
+// int retFn(int a, int b){
+//   return a + b;
+// }
+
+// int res = retFn(4,8);
+// print(res * 2);
 
 
 // LIST 
@@ -283,65 +290,65 @@ void main(){
 
 // --------------- Grade Calculator ---------------
 
-List<dynamic> stdInfo = [];
-List<String> courseName = [];
-List<double> courseMarks = [];
+// List<dynamic> stdInfo = [];
+// List<String> courseName = [];
+// List<double> courseMarks = [];
 
-int courseCount;
-double totalMarks = 0;
-double obtMarks = 0;
-double percentage = 0;
-String grade = "";
+// int courseCount;
+// double totalMarks = 0;
+// double obtMarks = 0;
+// double percentage = 0;
+// String grade = "";
 
-//std info
-print("Enter Enrollment # :");
-stdInfo.add(stdin.readLineSync() ?? "Not Provided");
+// //std info
+// print("Enter Enrollment # :");
+// stdInfo.add(stdin.readLineSync() ?? "Not Provided");
 
-print("Enter Name");
-stdInfo.add(stdin.readLineSync() ?? "Not Provided");
+// print("Enter Name");
+// stdInfo.add(stdin.readLineSync() ?? "Not Provided");
 
-//total # of course
-print("How many subjects do you have");
-courseCount = int.parse(stdin.readLineSync() ?? "0");
+// //total # of course
+// print("How many subjects do you have");
+// courseCount = int.parse(stdin.readLineSync() ?? "0");
 
-totalMarks = courseCount*100;
+// totalMarks = courseCount*100;
 
-//courses marks
-for(var i = 0; i < courseCount; i++){
-  print("Enter the name of ${i + 1}");
-  courseName.add(stdin.readLineSync() ?? "Not Provided");
+// //courses marks
+// for(var i = 0; i < courseCount; i++){
+//   print("Enter the name of ${i + 1}");
+//   courseName.add(stdin.readLineSync() ?? "Not Provided");
 
-  print("Enter the Marks of ${courseName[i]}");
-  courseMarks.add(double.parse(stdin.readLineSync() ?? "Not Provided"));
+//   print("Enter the Marks of ${courseName[i]}");
+//   courseMarks.add(double.parse(stdin.readLineSync() ?? "Not Provided"));
 
-  obtMarks += courseMarks[i];
-}
+//   obtMarks += courseMarks[i];
+// }
 
-percentage = obtMarks/totalMarks*100;
+// percentage = obtMarks/totalMarks*100;
 
-if(percentage <= 100 && percentage >= 80){
-  grade = "A+";
-}
-else if(percentage <= 79 && percentage >= 70){
-grade = "A";
-}
-else if(percentage <= 69 && percentage >= 60){
-grade = "B";
-}
-else if(percentage <= 59 && percentage >= 50){
-grade = "C";
-}
-else if(percentage <= 49 && percentage >= 40){
-grade = "D";
-}
-else if(percentage <= 30 && percentage >= 0){
-grade = "Fail";
-}
+// if(percentage <= 100 && percentage >= 80){
+//   grade = "A+";
+// }
+// else if(percentage <= 79 && percentage >= 70){
+// grade = "A";
+// }
+// else if(percentage <= 69 && percentage >= 60){
+// grade = "B";
+// }
+// else if(percentage <= 59 && percentage >= 50){
+// grade = "C";
+// }
+// else if(percentage <= 49 && percentage >= 40){
+// grade = "D";
+// }
+// else if(percentage <= 30 && percentage >= 0){
+// grade = "Fail";
+// }
 
-print("\n Student Result Summary");
-print("Enrollment # : ${stdInfo[0]}");
-print("Student Name : ${stdInfo[1]}");
-print("Percentage : $percentage");
-print("Student Grade : $grade");
+// print("\n Student Result Summary");
+// print("Enrollment # : ${stdInfo[0]}");
+// print("Student Name : ${stdInfo[1]}");
+// print("Percentage : $percentage");
+// print("Student Grade : $grade");
 
 }
