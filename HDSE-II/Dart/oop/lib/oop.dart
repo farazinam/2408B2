@@ -4,48 +4,48 @@ int calculate() {
   return 6 * 7;
 }
 
-//class
-//  class _Car{    // (_) is used for private class
-//   String Model = "";
-//   String Color = "";
-//   int year = 0;
+// class
+ class _Car{    // (_) is used for private class
+  String Model = "";
+  String Color = "";
+  int year = 0;
 
-//   running(){
-//     print("Car Model is $Model, Color is $Color, year is $year");
-//   }
-// }
+  running(){
+    print("Car Model is $Model, Color is $Color, year is $year");
+  }
+}
 
-// class Person{
-//   String Enrollment = "";
-//   String Email = "";
-//   int age = 0;
+class Person{
+  String Enrollment = "";
+  String Email = "";
+  int age = 0;
 
-//   Person(this.Enrollment, this.Email, this.age);
+  Person(this.Enrollment, this.Email, this.age);
 
-//   details(){
-//     print("Enrollment is $Enrollment, Email is $Email, Age is $age");
-//   }
-// }
+  details(){
+    print("Enrollment is $Enrollment, Email is $Email, Age is $age");
+  }
+}
 
-// class Calculator{
-//   //Positiobnal Parameter
-//   int add(int a, int b) => a + b;
+class Calculator{
+  //Positiobnal Parameter
+  int add(int a, int b) => a + b;
 
-//   //Optional Positional
-//   void stdDetails(String name, [int? age]){
-//     print("Name : $name, Age : $age");
-//   }
+  //Optional Positional
+  void stdDetails(String name, [int? age]){
+    print("Name : $name, Age : $age");
+  }
 
-//   //Named Parameter
-//   void proDetails({String? pn, int? pp}){
-//     print("Product name : $pn, Product Price : $pp");
-//   }
+  //Named Parameter
+  void proDetails({String? pn, int? pp}){
+    print("Product name : $pn, Product Price : $pp");
+  }
 
-//   //Default Parameters
-//   void register(String email, [String password = "123"]){
-//     print("Email : $email, Password : $password");
-//   }
-// }
+  //Default Parameters
+  void register(String email, [String password = "123"]){
+    print("Email : $email, Password : $password");
+  }
+}
 
 
 // --------------------------------------------------------------
@@ -53,6 +53,23 @@ int calculate() {
 
 // OOP
 
+//Inheritance
+
+// //Ex: 1
+
+// class Mammal{
+//   void eat(){
+//     print("Animal can eat");
+//   }
+// }
+// class Dog extends Mammal{
+//   void bark(){
+//     print("Dog can Bark");
+//   }
+// }
+
+
+//Ex: 2
 class Animal{
   String regdNo = "";
 
@@ -85,6 +102,22 @@ class Cow extends Herbivorous {
   }
 }
 
+
+//Polymorphism
+
+class Mammal{
+  void eat(){
+    print("Mammal can eat");
+  }
+
+}
+
+class Dog extends Mammal{
+  @override
+  void eat(){
+    print("Dog can eat");
+  }
+}
 
 
 
@@ -137,12 +170,27 @@ void main(){
 // h.food = "Grass";
 // h.eat();
 
-Cow c = Cow();
-c.regdNo = "C123";
-c.walk();
-c.name = "Bufalo";
-c.run();
-c.food = "Grass";
-c.eat();
+
+
+//Ex: 1
+// Dog d = Dog();
+// d.eat();
+// d.bark();
+
+// //Ex: 2
+// Cow c = Cow();
+// c.regdNo = "C123";
+// c.walk();
+// c.name = "Bufalo";
+// c.run();
+// c.food = "Grass";
+// c.eat();
+
+
+Mammal m = Mammal();
+m.eat();
+
+// Dog d = Dog();
+// d.eat();
 
 }
