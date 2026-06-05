@@ -1,14 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:mobileapp/call_log.dart';
-// import 'package:mobileapp/rows_cols.dart';
+import 'package:flutter/foundation.dart';
 
-void main(){
-  runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: CallLog()
-      // RowCols()
-      
-    )
-  );
+import 'package:device_preview/device_preview.dart';
+import 'package:mobileapp/call_log.dart';
+import 'package:mobileapp/user_profile.dart';
+
+
+void main() => runApp(
+  DevicePreview(
+    enabled: !kReleaseMode,
+    builder: (context) => MyApp(), // Wrap your app
+  ),
+);
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      home: const UserProfile(),
+    );
+  }
 }
