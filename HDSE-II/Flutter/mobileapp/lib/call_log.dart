@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobileapp/form.dart';
 
 class CallLog extends StatelessWidget {
   const CallLog({super.key});
@@ -7,7 +8,9 @@ class CallLog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: Icon(Icons.arrow_back)),
       ),
       body: 
       ListView(
