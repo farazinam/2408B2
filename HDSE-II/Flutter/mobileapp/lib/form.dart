@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart'; //
 import 'package:mobileapp/call_log.dart';
 
 class FormUI extends StatelessWidget {
@@ -6,13 +7,18 @@ class FormUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    GlobalKey<FormState> _FKey =  GlobalKey<FormState>();  //
+
     return Scaffold(
       body: Container(
         width: double.infinity,
         height: double.infinity,
         color: Colors.green[100],
         margin: EdgeInsets.only(left: 16, right: 16),
-        child: Form(child: 
+        child: Form(
+          key: _FKey, //
+          child: 
         Column(
           children: [
             Container(width: double.infinity,
@@ -25,6 +31,13 @@ class FormUI extends StatelessWidget {
             Text("Login", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
             SizedBox(height: 15,),
             TextFormField(
+              autovalidateMode: AutovalidateMode.onUnfocus, //
+              validator: MultiValidator(
+                [
+                  RequiredValidator(errorText: "Username is required"),
+                  PatternValidator(r'^[a-z]{3,}$', errorText: "Atleast 3 characters required")
+                ]
+              ).call,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderSide: BorderSide(
@@ -32,14 +45,21 @@ class FormUI extends StatelessWidget {
                   )
                 ),
                 label: Text("UserName"),
-                prefixIcon: Icon(Icons.person, color: Colors.green,)
                 // hint: Text("Email") 
+                prefixIcon: Icon(Icons.person, color: Colors.green,)
               ),
             ),
 
             SizedBox(height: 15,),
 
             TextFormField(
+               autovalidateMode: AutovalidateMode.onUnfocus, //
+              validator: MultiValidator(
+                [
+                  RequiredValidator(errorText: "Email is required"),
+                  EmailValidator(errorText: "Email should be valid")
+                ]
+              ).call,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderSide: BorderSide(
