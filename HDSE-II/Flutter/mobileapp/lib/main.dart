@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-
 import 'package:device_preview/device_preview.dart';
-import 'package:mobileapp/call_log.dart';
-import 'package:mobileapp/form.dart';
-import 'package:mobileapp/user_profile.dart';
+import 'package:mobileapp/alerts.dart';
+import 'package:mobileapp/botmnavbar.dart';
 
 
 void main() => runApp(
@@ -23,7 +21,7 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      home: const FormUI(),
+      home: const Alerts(),
     );
   }
 }
