@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mobileapp/form.dart';
 
 class Alerts extends StatelessWidget {
@@ -11,6 +12,7 @@ class Alerts extends StatelessWidget {
         title: Text("Alerts"),
       ),
       body: 
+      //SnackBar
       Center(
         child: Column(
         children: [
@@ -27,6 +29,31 @@ class Alerts extends StatelessWidget {
             child: const Text("Show SnakeBar"),
           ),
 
+
+          //BottomSheet
+          ElevatedButton(
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (context){
+                  return SizedBox(
+                    height: 150,
+                    child: Center(child: Text("This is Bottom Sheet"),),
+                  );
+                });
+            },
+            child: const Text("Show Bottom Sheet"),
+          ),
+
+
+          //Toast
+          ElevatedButton(
+            onPressed: showToast, 
+            child: Text("Toast Button"),
+            ),
+
+          
+          //Alert
           // ElevatedButton(
           //   onPressed: () {
               AlertDialog(
@@ -57,4 +84,11 @@ class Alerts extends StatelessWidget {
       )
     );
   }
+}
+
+
+void showToast(){
+  Fluttertoast.showToast(
+    msg: "This is Flutter Toast",
+    );
 }
