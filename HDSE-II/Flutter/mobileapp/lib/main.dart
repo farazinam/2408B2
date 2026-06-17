@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:mobileapp/alerts.dart';
 import 'package:mobileapp/botmnavbar.dart';
+import 'package:mobileapp/dynamic_list.dart';
 import 'package:mobileapp/table.dart';
 
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      home: const TableUI(),
+      home: const DynamicList(),
     );
   }
 }
