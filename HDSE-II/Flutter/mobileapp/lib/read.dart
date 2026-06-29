@@ -9,8 +9,20 @@ class ReadCategory extends StatefulWidget {
 }
 
 class _ReadCategoryState extends State<ReadCategory> {
+  final CollectionReference categories = FirebaseFirestore.instance.collection(
+    'category',
+  );
 
-  final CollectionReference categories = FirebaseFirestore.instance.collection('category');
+  void deleteCategory(String id) {
+    categories.doc(id).delete();
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text("Record Deleted"),
+        duration: Duration(seconds: 2),
+        backgroundColor: Colors.green,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,26 +35,28 @@ class _ReadCategoryState extends State<ReadCategory> {
       ),
       body: Center(
         child: StreamBuilder(
-          stream: categories.snapshots(), 
-          builder: (context, snapshot){
-            if(snapshot.hasData){
+          stream: categories.snapshots(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
               var catData = snapshot.data!.docs;
               return ListView.builder(
                 itemCount: catData.length,
-                itemBuilder: (context, index){
+                itemBuilder: (context, index) {
                   return ListTile(
                     title: Text(catData[index]['CategoryName']),
                     // subtitle: ,
-                    trailing: Icon(Icons.delete, color: Colors.red,),
+                    trailing: IconButton(
+                      onPressed: () => deleteCategory(catData[index].id),
+                      icon: Icon(Icons.delete, color: Colors.red),
+                    ),
                   );
-                });
-            }
-            else{
+                },
+              );
+            } else {
               return CircularProgressIndicator();
             }
           },
-          )
-
+        ),
       ),
     );
   }
