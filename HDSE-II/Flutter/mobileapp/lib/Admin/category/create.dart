@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:form_field_validator/form_field_validator.dart'; //
-import 'package:mobileapp/read.dart';
+import 'package:form_field_validator/form_field_validator.dart';
+import 'package:mobileapp/Admin/category/read.dart'; //
 
 class CreateCategory extends StatefulWidget {
   CreateCategory({super.key});
@@ -37,6 +37,14 @@ class _CreateCategoryState extends State<CreateCategory> {
     GlobalKey<FormState> _FKey = GlobalKey<FormState>(); //
 
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: (){
+            Navigator.pop(context);
+          }, 
+          icon: Icon(Icons.arrow_back)),
+        title: Text("Category"),
+      ),
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -46,14 +54,6 @@ class _CreateCategoryState extends State<CreateCategory> {
           key: _FKey, //
           child: Column(
             children: [
-              Container(
-                width: double.infinity,
-                height: 200,
-                child: Image.asset("images/category.png", fit: BoxFit.cover),
-              ),
-
-              SizedBox(height: 15),
-
               Text(
                 "Add Category",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),

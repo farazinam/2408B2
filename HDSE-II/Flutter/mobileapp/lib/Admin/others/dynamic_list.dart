@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobileapp/call_log.dart';
+import 'package:mobileapp/Admin/others/call_log.dart';
 
 class DynamicList extends StatefulWidget {
   const DynamicList({super.key});

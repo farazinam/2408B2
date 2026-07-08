@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:form_field_validator/form_field_validator.dart'; //
-import 'package:mobileapp/call_log.dart';
+import 'package:form_field_validator/form_field_validator.dart';
+import 'package:mobileapp/Admin/others/call_log.dart'; //
 
-class FormUI extends StatelessWidget {
-  const FormUI({super.key});
+class SignUpUI extends StatelessWidget {
+  const SignUpUI({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class FormUI extends StatelessWidget {
         width: double.infinity,
         height: double.infinity,
         color: Colors.green[100],
-        margin: EdgeInsets.only(left: 16, right: 16),
+        padding: EdgeInsets.only(left: 16, right: 16),
         child: Form(
           key: _FKey, //
           child: 
@@ -23,12 +23,15 @@ class FormUI extends StatelessWidget {
           children: [
             Container(width: double.infinity,
             height: 200,
-        child: Image.asset("images/signup.png", fit: BoxFit.cover,) 
+        child: 
+        Icon(Icons.login, size: 100,)
+        //Image.asset("images/signup.png", fit: BoxFit.cover,) 
+      
             ),
 
             SizedBox(height: 15,),
 
-            Text("Login", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+            Text("SignUp", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
             SizedBox(height: 15,),
             TextFormField(
               autovalidateMode: AutovalidateMode.onUnfocus, //
@@ -74,10 +77,34 @@ class FormUI extends StatelessWidget {
 
             SizedBox(height: 15,),
 
-            Row(
+            TextFormField(
+               autovalidateMode: AutovalidateMode.onUnfocus, //
+              validator: MultiValidator(
+                [
+                  RequiredValidator(errorText: "Password is required"),
+                  // EmailValidator(errorText: "Email should be valid")
+                ]
+              ).call,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.green
+                  )
+                ),
+                label: Text("Password"),
+                prefixIcon: Icon(Icons.email, color: Colors.green,)
+                // hint: Text("Email") 
+              ),
+            ),
+
+            SizedBox(height: 15,),
+
+            Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                TextButton(onPressed: (){}, child: Text("Create A New Account")),
+                TextButton(onPressed: (){
+                  Navigator.pop(context);
+                }, child: Text("Already have an Account? Sign In")),
                 TextButton(onPressed: (){}, child: Text("Forget Password")),
               ],
             ),

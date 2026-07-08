@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mobileapp/form.dart';
+import 'package:mobileapp/Admin/others/form.dart';
 
 class Alerts extends StatelessWidget {
   const Alerts({super.key});
