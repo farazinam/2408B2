@@ -1,14 +1,70 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:mobileapp/Admin/others/call_log.dart'; //
 
-class SignUpUI extends StatelessWidget {
+class SignUpUI extends StatefulWidget {
   const SignUpUI({super.key});
+
+  @override
+  State<SignUpUI> createState() => _SignUpUIState();
+}
+
+class _SignUpUIState extends State<SignUpUI> {
+
+  final CollectionReference user = FirebaseFirestore.instance.collection("user");
+
+    GlobalKey<FormState> _FKey =  GlobalKey<FormState>();  
+
+  final TextEditingController username = TextEditingController();
+  final TextEditingController email = TextEditingController();
+  final TextEditingController password = TextEditingController();
+  final TextEditingController confirmPassword = TextEditingController();
+
+  Future<void> CreateUser () async{
+    var un = username.text.trim();
+    var em = email.text.trim();
+    var ps = password.text.trim();
+    var cps = confirmPassword.text.trim();
+
+    var testFormValidation = _FKey.currentState?.validate();
+
+    if(testFormValidation == true){
+      if(ps == cps){
+        try{
+          UserCredential userCred = await FirebaseAuth.instance.
+          createUserWithEmailAndPassword(
+            email: em, 
+            password: ps);
+
+            User? getUser =  userCred.user;
+
+            if(getUser != null){
+              await users.doc(getUser.uid).set(
+                {
+                  "UserName" : un,
+                  "Email" : em,
+                  "Password" : password,
+                  "Role" : "Admin",
+                  // "CreatedAt" : DateTime.now()
+                },
+
+                print("Account Created and User Added")
+              );
+            }
+        }
+        catch(e){
+          print("Error! $e");
+        }
+      }
+    }
+  }
+
+  
 
   @override
   Widget build(BuildContext context) {
 
-    GlobalKey<FormState> _FKey =  GlobalKey<FormState>();  //
 
     return Scaffold(
       body: Container(
@@ -34,6 +90,7 @@ class SignUpUI extends StatelessWidget {
             Text("SignUp", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
             SizedBox(height: 15,),
             TextFormField(
+              controller: username,
               autovalidateMode: AutovalidateMode.onUnfocus, //
               validator: MultiValidator(
                 [
@@ -56,6 +113,7 @@ class SignUpUI extends StatelessWidget {
             SizedBox(height: 15,),
 
             TextFormField(
+              controller: email,
                autovalidateMode: AutovalidateMode.onUnfocus, //
               validator: MultiValidator(
                 [
@@ -78,6 +136,7 @@ class SignUpUI extends StatelessWidget {
             SizedBox(height: 15,),
 
             TextFormField(
+              controller: password,
                autovalidateMode: AutovalidateMode.onUnfocus, //
               validator: MultiValidator(
                 [
@@ -92,7 +151,30 @@ class SignUpUI extends StatelessWidget {
                   )
                 ),
                 label: Text("Password"),
-                prefixIcon: Icon(Icons.email, color: Colors.green,)
+                prefixIcon: Icon(Icons.password, color: Colors.green,)
+                // hint: Text("Email") 
+              ),
+            ),
+
+            SizedBox(height: 15,),
+
+              TextFormField(
+                controller: confirmPassword,
+               autovalidateMode: AutovalidateMode.onUnfocus, //
+              validator: MultiValidator(
+                [
+                  RequiredValidator(errorText: "Confirm Password is required"),
+                  // EmailValidator(errorText: "Email should be valid")
+                ]
+              ).call,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.green
+                  )
+                ),
+                label: Text("Confirm Password"),
+                prefixIcon: Icon(Icons.password, color: Colors.green,)
                 // hint: Text("Email") 
               ),
             ),
@@ -111,15 +193,12 @@ class SignUpUI extends StatelessWidget {
 
             SizedBox(height: 15,),
 
+           
             ElevatedButton(onPressed: (){
-
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return CallLog();
-              }));
-            }, 
+              CreateUser();
+            }, child: Text("Sign Up"))
+           
             
-            child: Text("Sign In"),
-            )
           ],
         )),
       ),
