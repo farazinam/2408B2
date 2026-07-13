@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:mobileapp/Admin/others/call_log.dart';
+import 'package:mobileapp/Admin/index.dart';
 import 'package:mobileapp/signup.dart'; //
 
 class SignInUI extends StatelessWidget {
@@ -9,7 +11,36 @@ class SignInUI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    final CollectionReference users = FirebaseFirestore.instance.collection("user");
+
     GlobalKey<FormState> _FKey =  GlobalKey<FormState>();  //
+
+      final TextEditingController email = TextEditingController();
+  final TextEditingController password = TextEditingController();
+
+    Future<void> SignIn() async{
+      final getEmail = email.text.trim();
+      final getPassword = password.text.trim();
+
+      final checkFormValidation = _FKey.currentState?.validate();
+
+      if(checkFormValidation == true){
+        try{
+          final User? getUser = (await FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: getEmail, 
+            password: getPassword)).user;
+
+            if(getUser != null){
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+                return AdminHome();
+              }));
+            }
+        }
+        catch(e){
+          print("Error : $e");
+        }
+      }
+    }
 
     return Scaffold(
       body: Container(
@@ -37,6 +68,7 @@ class SignInUI extends StatelessWidget {
            
 
             TextFormField(
+              controller: email,
                autovalidateMode: AutovalidateMode.onUnfocus, //
               validator: MultiValidator(
                 [
@@ -59,6 +91,7 @@ class SignInUI extends StatelessWidget {
             SizedBox(height: 15,),
 
             TextFormField(
+              controller: password,
                autovalidateMode: AutovalidateMode.onUnfocus, //
               validator: MultiValidator(
                 [
@@ -93,14 +126,9 @@ class SignInUI extends StatelessWidget {
             SizedBox(height: 15,),
 
             ElevatedButton(onPressed: (){
-
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return CallLog();
-              }));
-            }, 
+              SignIn();
+            }, child: Text("Sign In"))
             
-            child: Text("Sign In"),
-            )
           ],
         )),
       ),

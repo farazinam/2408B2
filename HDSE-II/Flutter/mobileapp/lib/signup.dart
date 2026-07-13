@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:mobileapp/signin.dart';
 
 class SignUpUI extends StatefulWidget {
   const SignUpUI({super.key});
@@ -12,7 +13,7 @@ class SignUpUI extends StatefulWidget {
 
 class _SignUpUIState extends State<SignUpUI> {
 
-  final CollectionReference user = FirebaseFirestore.instance.collection("user");
+  final CollectionReference users = FirebaseFirestore.instance.collection("user");
 
     GlobalKey<FormState> _FKey =  GlobalKey<FormState>();  
 
@@ -44,13 +45,17 @@ class _SignUpUIState extends State<SignUpUI> {
                 {
                   "UserName" : un,
                   "Email" : em,
-                  "Password" : password,
-                  "Role" : "Admin",
+                  "Password" : ps,
+                  "Role" : "User",
                   // "CreatedAt" : DateTime.now()
                 },
 
-                print("Account Created and User Added")
               );
+                print("Account Created and User Added");
+
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return SignInUI();
+                }));
             }
         }
         catch(e){
