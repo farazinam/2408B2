@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:mobileapp/Admin/index.dart';
+import 'package:mobileapp/User/UserIndex.dart';
 import 'package:mobileapp/signup.dart'; //
 
 class SignInUI extends StatelessWidget {
@@ -30,10 +31,30 @@ class SignInUI extends StatelessWidget {
             email: getEmail, 
             password: getPassword)).user;
 
+           QuerySnapshot querySnapshot = await users.where('Email', isEqualTo: getEmail).get();
+
+           if(querySnapshot.docs.isEmpty){
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text("No User Found"))
+            );
+            return; 
+           }
+
+           var userData = querySnapshot.docs.first.data() as Map<String, dynamic>;
+
+           String role = userData['Role'] ?? 'User';
+
             if(getUser != null){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
+              if(role == 'Admin'){
+                Navigator.push(context, MaterialPageRoute(builder: (context){
                 return AdminHome();
               }));
+              }
+              else{
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                return UserIndex();
+              }));
+              }
             }
         }
         catch(e){
