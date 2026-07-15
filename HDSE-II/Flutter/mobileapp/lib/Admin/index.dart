@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobileapp/Admin/category/create.dart';
+import 'package:mobileapp/signin.dart';
 
 class AdminHome extends StatelessWidget {
   const AdminHome({super.key});
@@ -9,8 +11,11 @@ class AdminHome extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(onPressed: (){
-          Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back)),
+         FirebaseAuth.instance.signOut();
+         Navigator.push(context, MaterialPageRoute(builder: (context){
+          return SignInUI();
+         }));
+        }, icon: Icon(Icons.logout)),
         title: Text("Welcome to Admin Panel"),
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,

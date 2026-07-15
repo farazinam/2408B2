@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mobileapp/signin.dart';
 
 class UserIndex extends StatefulWidget {
   const UserIndex({super.key});
@@ -13,8 +15,13 @@ class _UserIndexState extends State<UserIndex> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: (){}, 
-          icon: Icon(Icons.add_box_rounded, size: 50,),
+          onPressed: (){
+             FirebaseAuth.instance.signOut();
+         Navigator.push(context, MaterialPageRoute(builder: (context){
+          return SignInUI();
+         }));
+          }, 
+          icon: Icon(Icons.logout, size: 50,),
           ),
           actions: [
             Icon(Icons.search, size: 50,)
