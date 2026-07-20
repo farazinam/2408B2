@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:mobileapp/Admin/index.dart';
 import 'package:mobileapp/User/UserIndex.dart';
+import 'package:mobileapp/forget_password.dart';
 import 'package:mobileapp/signup.dart'; //
 
 class SignInUI extends StatelessWidget {
@@ -140,7 +141,11 @@ class SignInUI extends StatelessWidget {
                     return SignUpUI();
                   }));
                 }, child: Text("Create A New Account")),
-                TextButton(onPressed: (){}, child: Text("Forget Password")),
+                TextButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return ForgetPasswordUI();
+                  }));
+                }, child: Text("Forget Password")),
               ],
             ),
 
