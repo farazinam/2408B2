@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mobileapp/User/UserIndex.dart';
-import 'package:mobileapp/signin.dart';
+import 'package:mobileapp/splash_screen.dart';
 import 'firebase_options.dart';
 import 'package:flutter/foundation.dart';
 import 'package:device_preview/device_preview.dart';
@@ -50,7 +50,7 @@ User? user;
       builder: DevicePreview.appBuilder,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      home: user != null ? UserIndex() : SignInUI(),
+      home: user != null ? UserIndex() : SplashScreen(),
     );
   }
 }
