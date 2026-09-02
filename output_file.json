@@ -1,0 +1,4 @@
+{"_id":{"$oid":"6a7bf70f520527132cd3937c"},"name":"Usman","age":19,"city":"Lahore","fees":7200}
+{"_id":{"$oid":"6a7bf70f520527132cd3937e"},"name":"Bilal","age":19,"city":"Lahore","fees":7600}
+{"_id":{"$oid":"6a828f51773c547be0d1517b"},"name":"Zahid","age":27,"city":"Lahore","fees":7300}
+{"_id":{"$oid":"6a828f51773c547be0d1517c"},"name":"Hamiz","age":29,"city":"Lahore","fees":7900}

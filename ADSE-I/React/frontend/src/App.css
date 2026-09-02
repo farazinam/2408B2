@@ -1,0 +1,22 @@
+h2{
+    color: green;
+    background-color: lightblue;
+}
+
+div{
+    margin: 20px;
+}
+
+a{
+    margin: 5px;
+}
+
+nav, footer{
+    background-color: lightblue;
+    padding: 20px;
+}
+
+div{
+    background-color: lightsalmon;
+}
+

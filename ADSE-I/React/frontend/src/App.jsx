@@ -1,0 +1,76 @@
+import './App.css'
+
+
+// function Properties(props){
+//   return <h2> Welcome to {props.name} </h2>
+// }
+
+// function Age({age, city}){
+//   return <h3 style={{color: "white", backgroundColor: "black"}}> Age is {age} years and City is {city} </h3>
+// }
+
+
+function Header(){
+  return ( <>
+  <nav>
+    <a href="">Home</a>
+    <a href="">About</a>
+    <a href="">Services</a>
+    <a href="">Contact</a>
+  </nav>
+  </>
+)
+}
+
+function Content({title, description, children}){
+  return (
+    <div style={{border: "2px solid gray", width: "25%"}}>
+      <h3>{title}</h3>
+      <p>{description}</p>
+      {children}
+    </div>
+)
+}
+
+function Footer (){
+  return <footer>
+    All right reserved Copyright &copy; Aptech Limited!
+  </footer>
+}
+
+function LoginStatus({isLoggedIn}){
+  return <h3 style={{textAlign: "right"}}> {isLoggedIn ? "Faraz Inam" : "Please Log In"} </h3>
+}
+
+
+function App(){
+    // const name = "Faraz Inam"; 
+  return (
+  <>
+  {/* <h1> Hello world!</h1> 
+  <p> React </p>
+  <a href="">Aptech</a>
+  <p>My Name is {name}</p> */}
+
+  {/* <Properties name="Aptech North Nazimabad" />
+
+  <Age age={24} city="Karachi" /> */}
+
+  <Header />
+  <LoginStatus isLoggedIn={true} />
+
+  <div style={{display: "flex"}}>
+  <Content title="Watch" description="Smart Watch">
+    <button>Add To Cart</button>
+  </Content>
+  <Content title="Perfume" description="EveryOne">
+    <button>Add To Cart</button>
+  </Content>
+  </div>
+
+  <Footer />
+  </>
+  )
+}
+
+export default App
