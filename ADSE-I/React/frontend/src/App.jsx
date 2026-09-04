@@ -1,4 +1,7 @@
 import './App.css'
+import Events from './hooks/events'
+import Counter from './hooks/useState'
+import HomePage from './webPage/HomePage'
 
 
 // function Properties(props){
@@ -8,39 +11,6 @@ import './App.css'
 // function Age({age, city}){
 //   return <h3 style={{color: "white", backgroundColor: "black"}}> Age is {age} years and City is {city} </h3>
 // }
-
-
-function Header(){
-  return ( <>
-  <nav>
-    <a href="">Home</a>
-    <a href="">About</a>
-    <a href="">Services</a>
-    <a href="">Contact</a>
-  </nav>
-  </>
-)
-}
-
-function Content({title, description, children}){
-  return (
-    <div style={{border: "2px solid gray", width: "25%"}}>
-      <h3>{title}</h3>
-      <p>{description}</p>
-      {children}
-    </div>
-)
-}
-
-function Footer (){
-  return <footer>
-    All right reserved Copyright &copy; Aptech Limited!
-  </footer>
-}
-
-function LoginStatus({isLoggedIn}){
-  return <h3 style={{textAlign: "right"}}> {isLoggedIn ? "Faraz Inam" : "Please Log In"} </h3>
-}
 
 
 function App(){
@@ -55,20 +25,15 @@ function App(){
   {/* <Properties name="Aptech North Nazimabad" />
 
   <Age age={24} city="Karachi" /> */}
+  
+  <HomePage />
 
-  <Header />
-  <LoginStatus isLoggedIn={true} />
+  <hr />
 
-  <div style={{display: "flex"}}>
-  <Content title="Watch" description="Smart Watch">
-    <button>Add To Cart</button>
-  </Content>
-  <Content title="Perfume" description="EveryOne">
-    <button>Add To Cart</button>
-  </Content>
-  </div>
+  <Counter />
 
-  <Footer />
+  <Events />
+
   </>
   )
 }
