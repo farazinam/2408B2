@@ -1,6 +1,7 @@
 import './App.css'
 import Events from './hooks/events'
-import Counter from './hooks/useState'
+import UseEffectFn from './hooks/useEffect'
+import USHook from './hooks/useState'
 import HomePage from './webPage/HomePage'
 
 
@@ -26,13 +27,14 @@ function App(){
 
   <Age age={24} city="Karachi" /> */}
   
-  <HomePage />
+  {/* <HomePage /> */}
 
   <hr />
 
-  <Counter />
+  {/* <USHook /> */}
+  <UseEffectFn />
 
-  <Events />
+  {/* <Events /> */}
 
   </>
   )
