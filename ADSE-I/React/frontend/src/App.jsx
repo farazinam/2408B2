@@ -1,6 +1,7 @@
 import './App.css'
 import Events from './hooks/events'
 import UseEffectFn from './hooks/useEffect'
+import UseRefFn from './hooks/useRef'
 import USHook from './hooks/useState'
 import HomePage from './webPage/HomePage'
 
@@ -32,7 +33,9 @@ function App(){
   <hr />
 
   {/* <USHook /> */}
-  <UseEffectFn />
+  {/* <UseEffectFn /> */}
+
+  <UseRefFn />
 
   {/* <Events /> */}
 

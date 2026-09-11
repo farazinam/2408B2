@@ -1,4 +1,6 @@
+import axios from "axios";
 import { useEffect, useState } from "react"
+
 
 function UE1 (){
     useEffect(() => {
@@ -16,10 +18,9 @@ function FetchAPIData(){
     const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/users")
-        .then((response) => response.json())
-        .then((data) => {
-            setUser(data);
+        axios.get("https://jsonplaceholder.typicode.com/users")
+        .then((response) => {
+            setUser(response.data);
             setLoading(false)
         }
         )
@@ -42,10 +43,40 @@ function FetchAPIData(){
     )
 }
 
+function Timer(){
+    useEffect(() => {
+        const timer = setInterval(() => {
+            console.log("Running...")
+        }, 50);
+    
+
+    return () => {
+        clearInterval(timer)
+        console.log("CleanUp Done");
+    }
+}, [])
+
+    return <h2>Timer is Running...</h2>
+}
+
+function CallingTimer(){
+    const [show, setShow] = useState(false);
+
+
+    return (
+        <>
+        <button onClick={() => setShow(!show)}>Toggle Show</button>
+        {show && <Timer />}
+        </>
+    )
+}
+
 function UseEffectFn(){
     return (
         <>
-        <FetchAPIData />
+        {/* <FetchAPIData /> */}
+        {/* <Timer /> */}
+        <CallingTimer />
         </>
     )
 }
