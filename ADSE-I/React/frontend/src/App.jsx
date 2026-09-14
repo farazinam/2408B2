@@ -1,4 +1,6 @@
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import NavigationBar from './component/Header'
 import Events from './hooks/events'
 import UseEffectFn from './hooks/useEffect'
 import UseRefFn from './hooks/useRef'
@@ -30,14 +32,24 @@ function App(){
   
   {/* <HomePage /> */}
 
-  <hr />
+  {/* <hr /> */}
 
   {/* <USHook /> */}
   {/* <UseEffectFn /> */}
 
-  <UseRefFn />
+  {/* <UseRefFn /> */}
 
   {/* <Events /> */}
+
+  <NavigationBar />
+
+  <Routes>
+    <Route path='/' element={<HomePage/>} />
+    <Route path='/event' element={<Events />} />
+    <Route path='/usestate' element={<USHook />} />
+    <Route path='/useeffect' element={<UseEffectFn />} />
+    <Route path='/useref' element={<UseRefFn />} />
+  </Routes>
 
   </>
   )
