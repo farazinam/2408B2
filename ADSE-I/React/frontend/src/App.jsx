@@ -6,6 +6,10 @@ import UseEffectFn from './hooks/useEffect'
 import UseRefFn from './hooks/useRef'
 import USHook from './hooks/useState'
 import HomePage from './webPage/HomePage'
+import MaterialHome from './metrialui/HomePage'
+import MUIGrid from './metrialui/Grid'
+import Profile from './metrialui/Profile'
+import Rabta from './metrialui/Contact'
 
 
 // function Properties(props){
@@ -49,6 +53,10 @@ function App(){
     <Route path='/usestate' element={<USHook />} />
     <Route path='/useeffect' element={<UseEffectFn />} />
     <Route path='/useref' element={<UseRefFn />} />
+    <Route path='/muihome' element={<MaterialHome />} />
+    <Route path='/muigrid' element={<MUIGrid />} />
+    <Route path='/profile' element={<Profile />} />
+    <Route path='/contact' element={<Rabta />} />
   </Routes>
 
   </>
