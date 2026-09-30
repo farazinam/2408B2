@@ -12,6 +12,7 @@ export default function NavigationBar(){
     <NavLink to='/muigrid'> MUI Grid </NavLink>
     <NavLink to='/profile'> My Profile </NavLink>
     <NavLink to='/contact'> Contact </NavLink>
+    <NavLink to='/reacthookform'> React Hook Form </NavLink>
 </nav>
     )
 }

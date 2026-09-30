@@ -10,6 +10,7 @@ import MaterialHome from './metrialui/HomePage'
 import MUIGrid from './metrialui/Grid'
 import Profile from './metrialui/Profile'
 import Rabta from './metrialui/Contact'
+import ReactHookForm from './hooks/reactHookForm'
 
 
 // function Properties(props){
@@ -57,6 +58,7 @@ function App(){
     <Route path='/muigrid' element={<MUIGrid />} />
     <Route path='/profile' element={<Profile />} />
     <Route path='/contact' element={<Rabta />} />
+    <Route path='/reacthookform' element={<ReactHookForm />} />
   </Routes>
 
   </>
