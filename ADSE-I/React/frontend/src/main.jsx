@@ -17,13 +17,13 @@ const theme = createTheme({
 
 createRoot(document.getElementById('root')).render(
   // <StrictMode>
-  <UserProvider>
   <BrowserRouter>
   <ThemeProvider theme={theme}>
     <CssBaseline />
+  <UserProvider>
     <App />
+  </UserProvider>
   </ThemeProvider>
   </BrowserRouter>
-  </UserProvider>
   // </StrictMode>,
 )

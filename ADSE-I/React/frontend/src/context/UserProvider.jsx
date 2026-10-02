@@ -1,4 +1,5 @@
-import React, { Children, useState } from 'react'
+
+import { useState } from 'react';
 import UserContext from './UserContext';
 
 function UserProvider({children}) {
