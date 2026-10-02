@@ -13,6 +13,8 @@ export default function NavigationBar(){
     <NavLink to='/profile'> My Profile </NavLink>
     <NavLink to='/contact'> Contact </NavLink>
     <NavLink to='/reacthookform'> React Hook Form </NavLink>
+    <NavLink to='/liftingstateup'> Lifting State Up </NavLink>
+    <NavLink to='/contextapi'> ContextAPI </NavLink>
 </nav>
     )
 }

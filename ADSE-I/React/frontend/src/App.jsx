@@ -11,6 +11,8 @@ import MUIGrid from './metrialui/Grid'
 import Profile from './metrialui/Profile'
 import Rabta from './metrialui/Contact'
 import ReactHookForm from './hooks/reactHookForm'
+import LiftingStateUp from './liftingStateUp/liftingStateUp'
+import Dashboard from './ContextAPI/Dashboard'
 
 
 // function Properties(props){
@@ -59,6 +61,7 @@ function App(){
     <Route path='/profile' element={<Profile />} />
     <Route path='/contact' element={<Rabta />} />
     <Route path='/reacthookform' element={<ReactHookForm />} />
+    <Route path='/contextapi' element={<Dashboard />} />
   </Routes>
 
   </>

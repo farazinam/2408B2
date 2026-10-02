@@ -5,6 +5,7 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from '@emotion/react'
 import { createTheme, CssBaseline } from '@mui/material'
+import UserProvider from './context/UserProvider.jsx'
 
 const theme = createTheme({
   palette:{
@@ -16,11 +17,13 @@ const theme = createTheme({
 
 createRoot(document.getElementById('root')).render(
   // <StrictMode>
+  <UserProvider>
   <BrowserRouter>
   <ThemeProvider theme={theme}>
     <CssBaseline />
     <App />
   </ThemeProvider>
   </BrowserRouter>
+  </UserProvider>
   // </StrictMode>,
 )
