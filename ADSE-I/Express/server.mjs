@@ -3,56 +3,56 @@ const app = express()
 const port = 3000
 
 import path from 'path'
+import { contact, index } from './controller/mycontroller.mjs';
 const dirname = path.resolve();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+const route = express.Router();
+app.use(route);
 
-app.get('/', (req, res) => {
-  res.send('Hello World Aptech!')
-})
+route.get('/', index);
 
-app.get('/contact', (req, res) => {
-  res.send('This is Contact!')
-})
+route.get('/contact', contact);
 
-app.get('/file', (req, res) => {
-  res.download('MockInterview_Task.docx')
-})
 
-app.get('/error', (req, res) => {
-  res.status(404).send('Page Not Found')
-})
+// app.get('/file', (req, res) => {
+//   res.download('MockInterview_Task.docx')
+// })
 
-app.get('/jsondata', (req, res) => {
-  res.json({name: "Ali", age: 22, city: "Karachi"})
-})
+// app.get('/error', (req, res) => {
+//   res.status(404).send('Page Not Found')
+// })
 
-app.get('/github', (req, res) => {
-  res.redirect("https://github.com/farazinam")
-})
+// app.get('/jsondata', (req, res) => {
+//   res.json({name: "Ali", age: 22, city: "Karachi"})
+// })
 
-app.get('/sendfile', (req, res) => {
-  res.sendFile(path.join(dirname, "abc.txt"))
-})
+// app.get('/github', (req, res) => {
+//   res.redirect("https://github.com/farazinam")
+// })
 
-app.get('/product/:id', (req, res) => {
-  const proId = req.params.id;
-  res.send(`Product ID is: ${proId}`)
-})
+// app.get('/sendfile', (req, res) => {
+//   res.sendFile(path.join(dirname, "abc.txt"))
+// })
 
-app.get('/greet', (req, res) => {
-  const {author} = req.query;
-  res.send(`Author is: ${author}`)
-})
+// app.get('/product/:id', (req, res) => {
+//   const proId = req.params.id;
+//   res.send(`Product ID is: ${proId}`)
+// })
 
-app.post('/login', (req, res) => {
-  const {un, em, ps} = req.body;
-  res.send(`USERNAME is: ${un}, EMAIL is ${em}, and PASSWORD is ${ps}`)
-})
+// app.get('/greet', (req, res) => {
+//   const {author} = req.query;
+//   res.send(`Author is: ${author}`)
+// })
 
-app.use('/usefile', express.static(dirname, {index: 'index.html'}))
+// app.post('/login', (req, res) => {
+//   const {un, em, ps} = req.body;
+//   res.send(`USERNAME is: ${un}, EMAIL is ${em}, and PASSWORD is ${ps}`)
+// })
+
+// app.use('/usefile', express.static(dirname, {index: 'index.html'}))
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
