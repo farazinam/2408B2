@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
 function AddProduct() {
     const [product, setProduct] = useState({
@@ -11,14 +12,14 @@ function AddProduct() {
         setProduct({...product, [e.target.name]: e.target.value})
     }
 
-    const HandleSubmit = (e) => {
+    const HandleSubmit = async(e) => { //
         e.preventDefault();
         console.log(`Product Name: ${product.pn}, Product Price: ${product.pp}, Product Description: ${product.pd}`);
 
         console.log("Product Added");
 
         try{
-            axios.post('http://localhost:3000/product', product);
+            await axios.post('http://localhost:3000/addproduct', product);
             alert("Data Added");
             setProduct({pn: "", pp: "", pd: ""})
         }
