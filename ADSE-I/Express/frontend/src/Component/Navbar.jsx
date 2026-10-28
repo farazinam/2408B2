@@ -6,6 +6,7 @@ function Navbar() {
     <nav>
         <NavLink to='/'> Home </NavLink>
         <NavLink to='/product'> Add Product </NavLink>
+        <NavLink to='/viewproduct'> View Product </NavLink>
     </nav>
   )
 }

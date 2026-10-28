@@ -1,11 +1,17 @@
 import express from 'express'
-import { AddProduct, Contact, Index } from "../controller/mycontroller.mjs";
+import { AddProduct, Contact, DeleteProduct, Index, UpdateProduct, ViewProduct, ViewProductById } from "../controller/mycontroller.mjs";
 
 const route = express.Router();
 
 route.get('/', Index);
 route.get('/contact', Contact);
+
 route.post('/addproduct', AddProduct); //AddProduct
+route.get('/getproduct', ViewProduct); //ViewProduct
+route.delete('/product/:id', DeleteProduct); //DeleteProduct
+
+route.get('/product/:id', ViewProductById); //EditProduct
+route.put('/product/:id', UpdateProduct); //UpdateProduct
 
 // app.get('/file', (req, res) => {
 //   res.download('MockInterview_Task.docx')

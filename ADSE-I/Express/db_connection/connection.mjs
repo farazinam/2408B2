@@ -1,7 +1,7 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 
 // 1. Use your MongoDB Atlas connection string
-const uri = "mongodb+srv://farazinam:123@ecommerce.hwuygsg.mongodb.net/?appName=eCommerce";
+const uri = "mongodb+srv://farazinam:123@ecommerce.hwuygsg.mongodb.net/";
 
 // 2. Create the client with Stable API settings
 const client = new MongoClient(uri, {
